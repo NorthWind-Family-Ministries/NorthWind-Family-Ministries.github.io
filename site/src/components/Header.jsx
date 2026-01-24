@@ -4,12 +4,40 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
+import Alert from '@mui/material/Alert'
+import Box from '@mui/material/Box'
 import { Link } from 'react-router-dom'
 import routes from '../routes'
 
 export default function Header() {
+    const [showBanner, setShowBanner] = React.useState(true)
+    const bannerRef = React.useRef(null)
+    const [bannerHeight, setBannerHeight] = React.useState(0)
+
+    React.useEffect(() => {
+        const update = () => {
+            const h = showBanner && bannerRef.current ? bannerRef.current.offsetHeight : 0
+            setBannerHeight(h)
+        }
+        update()
+        window.addEventListener('resize', update)
+        return () => window.removeEventListener('resize', update)
+    }, [showBanner])
     return (
-        <AppBar position="sticky" sx={{ bgcolor: 'common.white', color: 'text.primary', top: 0 }}>
+        <>
+        {showBanner && (
+            <Box ref={bannerRef} sx={{ position: 'sticky', top: 0, zIndex: (theme) => theme.zIndex.appBar + 1 }}>
+                <Alert
+                    severity="warning"
+                    icon={false}
+                    action={<Button color="inherit" size="small" onClick={() => setShowBanner(false)}>Dismiss</Button>}
+                    sx={{ borderRadius: 0, bgcolor: 'warning.main', color: 'warning.contrastText', textAlign: 'center' }}
+                >
+                    Site maintenance in progress.
+                </Alert>
+            </Box>
+        )}
+        <AppBar position="sticky" sx={{ bgcolor: 'common.white', color: 'text.primary', top: showBanner ? bannerHeight : 0 }}>
             <Toolbar>
                 <IconButton size="large" edge="start" color="inherit" aria-label="home" component={Link} to="/" sx={{ mr: 2, p: 0 }}>
                     <img src="/logo.png" alt="NorthWind Family Ministries logo" height="32" style={{ display: 'block' }} />
@@ -31,5 +59,6 @@ export default function Header() {
                 ))}
             </Toolbar>
         </AppBar>
+        </>
     )
 }
