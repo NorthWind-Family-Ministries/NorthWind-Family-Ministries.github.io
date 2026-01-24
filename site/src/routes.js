@@ -2,6 +2,7 @@
 import Home from './pages/Home'
 import About from './pages/About'
 import Donate from './pages/Donate'
+import NotFound from './pages/NotFound'
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
 import VolunteerActivism from '@mui/icons-material/VolunteerActivism'
@@ -16,7 +17,7 @@ const routes = [
     },
     {
         path: '/about',
-        label: 'About',
+        label: 'About Us',
         component: About,
         showInNav: true,
         icon: InfoOutlined,
@@ -32,6 +33,12 @@ const routes = [
         showInNav: true,
         highlight: true,
         icon: VolunteerActivism,
+    },
+    {
+        path: '*',
+        label: 'Not Found',
+        component: NotFound,
+        showInNav: false,
     },
 ]
 

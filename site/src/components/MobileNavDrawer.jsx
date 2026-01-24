@@ -90,12 +90,6 @@ export default function MobileNavDrawer({ open, onClose, routes }) {
                 )
             })}
             </List>
-            <Divider />
-            <Box sx={{ p: 2 }}>
-            <Typography variant="caption" color="text.secondary">
-                © {new Date().getFullYear()} NorthWind Family Ministries
-            </Typography>
-            </Box>
         </Box>
         </Drawer>
     )
