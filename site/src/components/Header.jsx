@@ -9,7 +9,7 @@ import routes from '../routes'
 
 export default function Header() {
     return (
-        <AppBar position="static">
+        <AppBar position="static" sx={{ bgcolor: 'common.white', color: 'text.primary' }}>
             <Toolbar>
                 <IconButton size="large" edge="start" color="inherit" aria-label="home" component={Link} to="/" sx={{ mr: 2, p: 0 }}>
                     <img src="/logo.png" alt="NorthWind Family Ministries logo" height="32" style={{ display: 'block' }} />
@@ -18,9 +18,17 @@ export default function Header() {
                     NorthWind Family Ministries
                 </Typography>
                 {routes.filter(r => r.showInNav).map(r => (
-                    <Button key={r.path} color="inherit" component={Link} to={r.path}>{r.label}</Button>
+                    <Button
+                        key={r.path}
+                        component={Link}
+                        to={r.path}
+                        color={r.highlight ? 'primary' : 'inherit'}
+                        variant={r.highlight ? 'contained' : 'text'}
+                        sx={r.highlight ? { ml: 1 } : {}}
+                    >
+                        {r.label}
+                    </Button>
                 ))}
-                <Button color="inherit">Login</Button>
             </Toolbar>
         </AppBar>
     )
