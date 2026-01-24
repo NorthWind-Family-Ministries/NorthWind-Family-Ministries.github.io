@@ -4,20 +4,22 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
-import MenuIcon from '@mui/icons-material/Menu'
 import { Link } from 'react-router-dom'
+import routes from '../routes'
 
 export default function Header() {
     return (
         <AppBar position="static">
             <Toolbar>
-                <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-                    <MenuIcon />
+                <IconButton size="large" edge="start" color="inherit" aria-label="home" component={Link} to="/" sx={{ mr: 2, p: 0 }}>
+                    <img src="/logo.png" alt="NorthWind Family Ministries logo" height="32" style={{ display: 'block' }} />
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     NorthWind Family Ministries
                 </Typography>
-                <Button color="inherit" component={Link} to="/about">About</Button>
+                {routes.filter(r => r.showInNav).map(r => (
+                    <Button key={r.path} color="inherit" component={Link} to={r.path}>{r.label}</Button>
+                ))}
                 <Button color="inherit">Login</Button>
             </Toolbar>
         </AppBar>
