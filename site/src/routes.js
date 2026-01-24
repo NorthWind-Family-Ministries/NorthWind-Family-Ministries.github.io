@@ -1,6 +1,6 @@
 // Central route configuration with optional nested subpages
 import Home from './pages/Home'
-import About from './pages/About'
+import About from './pages/About/About'
 import Donate from './pages/Donate'
 import NotFound from './pages/NotFound'
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
