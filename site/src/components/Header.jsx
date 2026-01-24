@@ -8,11 +8,14 @@ import Alert from '@mui/material/Alert'
 import Box from '@mui/material/Box'
 import { Link } from 'react-router-dom'
 import routes from '../routes'
+import MenuIcon from '@mui/icons-material/Menu'
+import MobileNavDrawer from './MobileNavDrawer'
 
 export default function Header() {
     const [showBanner, setShowBanner] = React.useState(true)
     const bannerRef = React.useRef(null)
     const [bannerHeight, setBannerHeight] = React.useState(0)
+    const [drawerOpen, setDrawerOpen] = React.useState(false)
 
     React.useEffect(() => {
         const update = () => {
@@ -45,20 +48,38 @@ export default function Header() {
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     NorthWind Family Ministries
                 </Typography>
-                {routes.filter(r => r.showInNav).map(r => (
-                    <Button
-                        key={r.path}
-                        component={Link}
-                        to={r.path}
-                        color={r.highlight ? 'primary' : 'inherit'}
-                        variant={r.highlight ? 'contained' : 'text'}
-                        sx={r.highlight ? { ml: 1 } : {}}
-                    >
-                        {r.label}
-                    </Button>
-                ))}
+                {/* Desktop nav buttons */}
+                <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                    {routes.filter(r => r.showInNav).map(r => (
+                        <Button
+                            key={r.path}
+                            component={Link}
+                            to={r.path}
+                            color={r.highlight ? 'primary' : 'inherit'}
+                            variant={r.highlight ? 'contained' : 'text'}
+                            sx={r.highlight ? { ml: 1 } : {}}
+                        >
+                            {r.label}
+                        </Button>
+                    ))}
+                </Box>
+                {/* Mobile menu icon */}
+                <IconButton
+                    color="inherit"
+                    aria-label="open navigation menu"
+                    onClick={() => setDrawerOpen(true)}
+                    sx={{ display: { xs: 'inline-flex', md: 'none' } }}
+                    size="large"
+                >
+                    <MenuIcon />
+                </IconButton>
             </Toolbar>
         </AppBar>
+        <MobileNavDrawer
+            open={drawerOpen}
+            onClose={() => setDrawerOpen(false)}
+            routes={routes}
+        />
         </>
     )
 }

@@ -2,6 +2,9 @@
 import Home from './pages/Home'
 import About from './pages/About'
 import Donate from './pages/Donate'
+import HomeOutlined from '@mui/icons-material/HomeOutlined'
+import InfoOutlined from '@mui/icons-material/InfoOutlined'
+import VolunteerActivism from '@mui/icons-material/VolunteerActivism'
 
 const routes = [
     {
@@ -9,12 +12,14 @@ const routes = [
         label: 'Home',
         component: Home,
         showInNav: false,
+        icon: HomeOutlined,
     },
     {
         path: '/about',
         label: 'About',
         component: About,
         showInNav: true,
+        icon: InfoOutlined,
         children: [
         // Example subpage (enable later):
         // { path: 'team', label: 'Team', component: Team, showInNav: false }
@@ -26,6 +31,7 @@ const routes = [
         component: Donate,
         showInNav: true,
         highlight: true,
+        icon: VolunteerActivism,
     },
 ]
 
