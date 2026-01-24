@@ -9,7 +9,7 @@ import routes from '../routes'
 
 export default function Header() {
     return (
-        <AppBar position="static" sx={{ bgcolor: 'common.white', color: 'text.primary' }}>
+        <AppBar position="sticky" sx={{ bgcolor: 'common.white', color: 'text.primary', top: 0 }}>
             <Toolbar>
                 <IconButton size="large" edge="start" color="inherit" aria-label="home" component={Link} to="/" sx={{ mr: 2, p: 0 }}>
                     <img src="/logo.png" alt="NorthWind Family Ministries logo" height="32" style={{ display: 'block' }} />
