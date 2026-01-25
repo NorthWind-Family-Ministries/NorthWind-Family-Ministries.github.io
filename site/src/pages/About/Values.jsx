@@ -9,10 +9,14 @@ export default function Values() {
     return (
         <Box>
             <Typography variant="h5" gutterBottom>
-                What We Offer
+                Our Mission
             </Typography>
             <Typography variant="body2" paragraph>
-                Building a sacred place of hope and healing.
+                Our main cause at NorthWind Family Ministries is to provide sacred places to embrace each other’s stories; find belongingness through a borderless community and improve meaningful connections to God and one another–as they were always meant to be.
+            </Typography>
+
+            <Typography variant="h6" gutterBottom sx={{ mt: 4 }}>
+                What We Offer
             </Typography>
 
             <Grid container spacing={3}>

@@ -12,7 +12,7 @@ export default function About() {
         {
             src: 'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1600&q=80',
             alt: 'Families supporting each other',
-            title: 'About NorthWind',
+            title: 'Who We Are',
             subtitle: 'Supporting families and communities with compassion and care.',
             ctaLabel: 'Donate',
             ctaHref: '/donate',
@@ -21,7 +21,7 @@ export default function About() {
             src: 'https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=1600&q=80',
             alt: 'Community gathering',
             title: 'Our Mission',
-            subtitle: 'Empower families through education and community partnerships.',
+            subtitle: 'Building a sacred place of hope and healing.',
             ctaLabel: 'Get Involved',
             ctaHref: '/donate',
         },

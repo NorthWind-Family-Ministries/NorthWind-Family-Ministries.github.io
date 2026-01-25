@@ -1,5 +1,5 @@
 // Central route configuration with optional nested subpages
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import Donate from './pages/Donate'
 import NotFound from './pages/NotFound'
@@ -8,6 +8,7 @@ import Contact from './pages/Contact'
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
 import VolunteerActivism from '@mui/icons-material/VolunteerActivism'
+// Removed standalone WhatWeDo page; now a Home section
 
 const routes = [
     {

@@ -2,7 +2,8 @@ import React from 'react'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
-import Hero from '../components/Hero'
+import Hero from '../../components/Hero'
+import WhatWeDoSection from './WhatWeDoSection'
 
 export default function Home() {
   return (
@@ -40,15 +41,8 @@ export default function Home() {
         align="center"
         darkOverlay
       />
-      <Container sx={{ py: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        Welcome
-      </Typography>
-      <Typography variant="body1" paragraph>
-        This is a basic React site using Material UI. Update this content to suit your needs.
-      </Typography>
-      <Button variant="contained" color="primary">Get Started</Button>
-      </Container>
+      <WhatWeDoSection />
+      
     </>
   )
 }
