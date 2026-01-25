@@ -4,6 +4,7 @@ import About from './pages/About/About'
 import Donate from './pages/Donate'
 import NotFound from './pages/NotFound'
 import Privacy from './pages/Privacy'
+import Contact from './pages/Contact'
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
 import VolunteerActivism from '@mui/icons-material/VolunteerActivism'
@@ -34,6 +35,12 @@ const routes = [
         showInNav: true,
         highlight: true,
         icon: VolunteerActivism,
+    },
+    {
+        path: '/contact',
+        label: 'Contact',
+        component: Contact,
+        showInNav: false,
     },
     {
         path: '/privacy',
