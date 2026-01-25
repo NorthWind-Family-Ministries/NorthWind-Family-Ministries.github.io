@@ -19,20 +19,26 @@ export default function Privacy() {
             </Typography>
             <List dense>
                 {[
-                    'Accountability',
-                    'Identifying purposes',
-                    'Consent',
-                    'Limiting collection',
-                    'Limiting use, disclosure, and retention',
-                    'Accuracy',
-                    'Safeguards',
-                    'Openness',
-                    'Individual access',
-                    'Data breach',
-                    'Challenging compliance',
+                    { label: 'Accountability', id: 'accountability' },
+                    { label: 'Identifying purposes', id: 'identifying-purposes' },
+                    { label: 'Consent', id: 'consent' },
+                    { label: 'Limiting collection', id: 'limiting-collection' },
+                    { label: 'Limiting use, disclosure, and retention', id: 'limiting-use-disclosure-retention' },
+                    { label: 'Accuracy', id: 'accuracy' },
+                    { label: 'Safeguards', id: 'safeguards' },
+                    { label: 'Openness', id: 'openness' },
+                    { label: 'Individual access', id: 'individual-access' },
+                    { label: 'Data breach', id: 'data-breach' },
+                    { label: 'Challenging compliance', id: 'challenging-compliance' },
                 ].map((item, idx) => (
-                    <ListItem key={item} sx={{ py: 0 }}>
-                        <ListItemText primary={`${idx + 1}. ${item}`} />
+                    <ListItem key={item.id} sx={{ py: 0 }}>
+                        <ListItemText
+                            primary={
+                                <Link href={`#${item.id}`} underline="hover" color="primary">
+                                    {`${idx + 1}. ${item.label}`}
+                                </Link>
+                            }
+                        />
                     </ListItem>
                 ))}
             </List>
@@ -81,7 +87,7 @@ export default function Privacy() {
 
             <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>Policy To Protect Personal Information</Typography>
 
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>1. ACCOUNTABILITY</Typography>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }} id="accountability">1. ACCOUNTABILITY</Typography>
             <Box component="ul" sx={{ pl: 3, my: 1 }}>
                 <Typography component="li" variant="body1" sx={{ mb: 1 }}>
                     Deanna Blanchard is hereby appointed as the personal information compliance Officer (the “Officer”).
@@ -133,7 +139,7 @@ export default function Privacy() {
                 </Typography>
             </Box>
 
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>2. IDENTIFYING PURPOSES</Typography>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }} id="identifying-purposes">2. IDENTIFYING PURPOSES</Typography>
             <Box component="ul" sx={{ pl: 3, my: 1 }}>  
                 <Typography component="li" variant="body1" paragraph>
                     The Officer shall document the purpose for which personal information is collected to comply with the openness and individual access principles outlined below.
@@ -156,7 +162,7 @@ export default function Privacy() {
             </Box>
             
 
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>3. CONSENT</Typography>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }} id="consent">3. CONSENT</Typography>
             <Box component="ul" sx={{ pl: 3, my: 1 }}>  
                 <Typography component="li" variant="body1" paragraph>
                     The Officer shall ensure that no condition is attached to supplying benefits, because of NorthWind’s activities, requiring the individual to give consent for the collection, use, or disclosure of information beyond that required to fulfil the explicitly specified and legitimate purposes.
@@ -180,7 +186,7 @@ export default function Privacy() {
                     The staff shall ensure that the individual understands that they may withdraw consent at any time, subject to legal or contractual restrictions and reasonable notice. The individual shall promptly be informed of the withdrawal’s implications.
                 </Typography>
             </Box>
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>4. LIMITING COLLECTION</Typography>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }} id="limiting-collection">4. LIMITING COLLECTION</Typography>
             <Box component="ul" sx={{ pl: 3, my: 1 }}>  
                 <Typography component="li" variant="body1" paragraph>
                     The Officer shall ensure that personal information will not be collected indiscriminately. Both the amount and type of information collected shall be limited to that which is necessary to fulfil the purposes identified. He/she shall specify the type of information to be collected, according to the Openness principle (Section 8 below).
@@ -192,7 +198,7 @@ export default function Privacy() {
                     The Officer shall ensure that the identifying purposes and consent principles are followed in identifying why personal information is to be collected.
                 </Typography>
             </Box>
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>5. LIMITING USE, DISCLOSURE, AND RETENTION</Typography>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }} id="limiting-use-disclosure-retention">5. LIMITING USE, DISCLOSURE, AND RETENTION</Typography>
             <Box component="ul" sx={{ pl: 3, my: 1 }}>  
                 <Typography component="li" variant="body1" paragraph>
                     The Officer shall ensure that personal information shall not be used or disclose for purposes other than those for which it was collected, except with the consent of the individual or as required by law, and any use of personal information shall be properly documented.
@@ -204,7 +210,7 @@ export default function Privacy() {
                     The Officer shall ensure that all use, disclosure, and retention decisions are made in light of the identifying purposes principle (Section 2 above), the consent principle (Section 3 above), and the individual access principle (Section 9 below).
                 </Typography>
             </Box>
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>6. ACCURACY</Typography>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }} id="accuracy">6. ACCURACY</Typography>
             <Box component="ul" sx={{ pl: 3, my: 1 }}>  
                 <Typography  component="li" variant="body1" paragraph>
                     The Officer shall reasonably ensure that the personal information is accurate, complete, and up to date, taking into account the individual’s interests. He shall ensure that the information is sufficiently accurate, complete, and up to date to minimize the possibility that inappropriate information might be used to make a decision about an individual.
@@ -214,7 +220,7 @@ export default function Privacy() {
                 </Typography>
             </Box>
 
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>7. SAFEGUARDS</Typography>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }} id="safeguards">7. SAFEGUARDS</Typography>
             <Box component="ul" sx={{ pl: 3, my: 1 }}>  
                 <Typography component="li" variant="body1" paragraph>
                     The Officer shall ensure that NorthWind has security safeguards to protect personal information against loss or theft, as well as unauthorized access, disclosure, copying, use, or modification. He shall do this regardless of the format in which NorthWind holds the information.
@@ -233,7 +239,7 @@ export default function Privacy() {
                 </Typography>
             </Box>
 
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>8. OPENNESS</Typography>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }} id="openness">8. OPENNESS</Typography>
             <Box component="ul" sx={{ pl: 3, my: 1 }}>  
 
                 <Typography component="li" variant="body1" paragraph>
@@ -261,7 +267,7 @@ export default function Privacy() {
                 </Box>
                 
             </Box>
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>9. INDIVIDUAL ACCESS</Typography>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }} id="individual-access">9. INDIVIDUAL ACCESS</Typography>
             <Box component="ul" sx={{ pl: 3, my: 1 }}>  
                 <Typography component="li" variant="body1" paragraph>
                     The Officer shall ensure that upon request NorthWind shall inform an individual whether the NorthWind holds personal information about him/her. If possible, the information’s source shall also be given. NorthWind shall allow the individual access to this information. NorthWind may, however, choose to make sensitive health information about its employees or volunteers available through a medical or mental health practitioner. NorthWind shall also account for the use that has been made or is being made of this information and give an account as to the third parties to whom it has been disclosed. (Note, If the Officer believes for valid reasons that access to personal information should be denied, he shall consult legal counsel before making such a decision.)
@@ -282,7 +288,7 @@ export default function Privacy() {
                     The Officer shall ensure that when a challenge is not resolved to the individual’s satisfaction, NorthWind shall record the unresolved challenge’s substance. When appropriate, the unresolved challenge’s existence shall be transmitted to third parties having access to the information in question.
                 </Typography>
             </Box>
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>10. DATA BREACH</Typography>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }} id="data-breach">10. DATA BREACH</Typography>
             <Typography variant="body1" paragraph>
                 If a data breach is discovered, the Officer will take the following steps:
             </Typography>
@@ -302,7 +308,7 @@ export default function Privacy() {
                 ))}
             </List>
 
-            <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>11. CHALLENGING COMPLIANCE</Typography>
+            <Typography variant="h6" gutterBottom sx={{ mt: 2 }} id="challenging-compliance">11. CHALLENGING COMPLIANCE</Typography>
             <Box component="ul" sx={{ pl: 3, my: 1 }}>  
                 <Typography component="li" variant="body1" paragraph>
                     The Officer is authorized to address a challenge concerning compliance with the above principles.
