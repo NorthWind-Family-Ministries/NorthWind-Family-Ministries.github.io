@@ -19,7 +19,6 @@ const areas = [
         description:
         'Compassionate, trauma‑informed support for individuals, couples, and families. We walk alongside people through seasons of change, grief, and growth.',
         image: '../../images/areas/counselling.jpg',
-        highlight: ['Individual', 'Couple', 'Family', 'Group'],
     },
     {
         key: 'lifebuild',
@@ -27,7 +26,6 @@ const areas = [
         description:
         'Practical skills and supports for everyday life: parenting, financial literacy, employment readiness, and healthy relationships to help families thrive.',
         image: '../../images/areas/lifebuild.jpg',
-        highlight: ['Parenting', 'Financial', 'Employment', 'Relationships'],
     },
     {
         key: 'land-based',
@@ -35,7 +33,6 @@ const areas = [
         description:
         'Healing and learning connected to land, culture, and community. Activities that honor tradition, build belonging, and strengthen identity.',
         image: '../../images/areas/landbased.jpg',
-        highlight: ['Outdoor', 'Culture', 'Community', 'Wellbeing'],
     },
     {
         key: 'spiritual-growth',
@@ -43,7 +40,6 @@ const areas = [
         description:
         'Faith‑formed care, mentorship, and spaces to explore hope and meaning. Opportunities for prayer, learning, and spiritual companionship.',
         image: '/images/areas/spiritual-growth.jpg',
-        highlight: ['Mentorship', 'Prayer', 'Learning', 'Retreats'],
     },
 ]
 
@@ -78,11 +74,11 @@ export default function WhatWeDoSection() {
                 <CardActions sx={{ px: 2, pb: 2 }}>
                     <Button
                     component={Link}
-                    to={`/contact?area=${encodeURIComponent(area.title)}`}
+                    to={area.key === 'counselling' ? '/what-we-do/counselling' : `/contact?area=${encodeURIComponent(area.title)}`}
                     variant="contained"
                     color="primary"
                     >
-                    View Programs
+                    {area.key === 'counselling' ? 'Explore Counselling' : 'View Programs'}
                     </Button>
                     <Button component={Link} to="/donate" color="inherit">
                     Support This Work

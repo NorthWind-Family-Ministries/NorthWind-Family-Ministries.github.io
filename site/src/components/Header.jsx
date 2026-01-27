@@ -10,12 +10,17 @@ import { Link } from 'react-router-dom'
 import routes from '../routes'
 import MenuIcon from '@mui/icons-material/Menu'
 import MobileNavDrawer from './MobileNavDrawer'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 
 export default function Header() {
     const [showBanner, setShowBanner] = React.useState(true)
     const bannerRef = React.useRef(null)
     const [bannerHeight, setBannerHeight] = React.useState(0)
     const [drawerOpen, setDrawerOpen] = React.useState(false)
+    const [menuAnchorEl, setMenuAnchorEl] = React.useState(null)
+    const [menuRoute, setMenuRoute] = React.useState(null)
 
     React.useEffect(() => {
         const update = () => {
@@ -50,18 +55,59 @@ export default function Header() {
                 </Typography>
                 {/* Desktop nav buttons */}
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-                    {routes.filter(r => r.showInNav).map(r => (
-                        <Button
-                            key={r.path}
-                            component={Link}
-                            to={r.path}
-                            color={r.highlight ? 'primary' : 'inherit'}
-                            variant={r.highlight ? 'contained' : 'text'}
-                            sx={r.highlight ? { ml: 1 } : {}}
-                        >
-                            {r.label}
-                        </Button>
-                    ))}
+                    {routes.filter(r => r.showInNav).map(r => {
+                        const hasChildren = r.children && r.children.length > 0
+                        if (!hasChildren) {
+                            return (
+                                <Button
+                                    key={r.path}
+                                    component={Link}
+                                    to={r.path}
+                                    color={r.highlight ? 'primary' : 'inherit'}
+                                    variant={r.highlight ? 'contained' : 'text'}
+                                    sx={r.highlight ? { ml: 1 } : {}}
+                                >
+                                    {r.label}
+                                </Button>
+                            )
+                        }
+                        return (
+                            <Box key={r.path} sx={{ display: 'inline-flex', alignItems: 'center' }}>
+                                <Button
+                                    component={Link}
+                                    to={r.path}
+                                    color={r.highlight ? 'primary' : 'inherit'}
+                                    variant={r.highlight ? 'contained' : 'text'}
+                                    sx={r.highlight ? { ml: 1 } : {}}
+                                >
+                                    {r.label}
+                                </Button>
+                                <IconButton
+                                    size="small"
+                                    aria-label={`Open ${r.label} menu`}
+                                    onClick={(e) => { setMenuAnchorEl(e.currentTarget); setMenuRoute(r); }}
+                                >
+                                    <ArrowDropDownIcon />
+                                </IconButton>
+                            </Box>
+                        )
+                    })}
+                    <Menu
+                        anchorEl={menuAnchorEl}
+                        open={Boolean(menuAnchorEl)}
+                        onClose={() => { setMenuAnchorEl(null); setMenuRoute(null); }}
+                    >
+                        {menuRoute?.children?.map(child => (
+                            <MenuItem
+                                key={`${menuRoute.path}-${child.path}`}
+                                component={Link}
+                                to={`${menuRoute.path}/${child.path}`}
+                                onClick={() => { setMenuAnchorEl(null); setMenuRoute(null); }}
+                            >
+                                {child.label || child.path}
+                            </MenuItem>
+                        ))}
+                    </Menu>
                 </Box>
                 {/* Mobile menu icon */}
                 <IconButton

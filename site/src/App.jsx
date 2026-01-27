@@ -14,16 +14,17 @@ export default function App() {
                 <Box component="main" sx={{ flexGrow: 1 }}>
                     <Routes>
                         {routes.map((route) => (
-                            route.children && route.children.length > 0 ? (
-                                <Route key={route.path} path={route.path} element={<route.component />}>
-                                    {route.children.map((child) => (
-                                        <Route key={`${route.path}-${child.path}`} path={child.path} element={<child.component />} />
-                                    ))}
-                                </Route>
-                            ) : (
-                                <Route key={route.path} path={route.path} element={<route.component />} />
-                            )
+                            <Route key={route.path} path={route.path} element={<route.component />} />
                         ))}
+                        {routes.flatMap((route) =>
+                            (route.children || []).map((child) => (
+                                <Route
+                                    key={`${route.path}/${child.path}`}
+                                    path={`${route.path}/${child.path}`}
+                                    element={<child.component />}
+                                />
+                            ))
+                        )}
                     </Routes>
                 </Box>
                 <Footer />

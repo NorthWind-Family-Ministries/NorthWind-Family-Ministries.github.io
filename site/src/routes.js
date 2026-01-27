@@ -8,7 +8,11 @@ import Contact from './pages/Contact'
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
 import VolunteerActivism from '@mui/icons-material/VolunteerActivism'
+import PsychologyOutlined from '@mui/icons-material/PsychologyOutlined'
+import CategoryOutlined from '@mui/icons-material/CategoryOutlined'
 // Removed standalone WhatWeDo page; now a Home section
+import Counselling from './pages/Counselling'
+import WhatWeDo from './pages/WhatWeDo'
 
 const routes = [
     {
@@ -27,6 +31,22 @@ const routes = [
         children: [
         // Example subpage (enable later):
         // { path: 'team', label: 'Team', component: Team, showInNav: false }
+        ],
+    },
+    {
+        path: '/what-we-do',
+        label: 'What We Do',
+        component: WhatWeDo,
+        showInNav: true,
+        icon: CategoryOutlined,
+        children: [
+            {
+                path: 'counselling',
+                label: 'Counselling',
+                component: Counselling,
+                showInNav: false,
+                icon: PsychologyOutlined,
+            },
         ],
     },
     {
