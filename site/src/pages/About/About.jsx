@@ -2,6 +2,7 @@ import React from 'react'
 import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
+import { useLocation } from 'react-router-dom'
 
 import Hero from '../../components/Hero'
 import Values from './Values'
@@ -9,6 +10,7 @@ import Team from './Team'
 import History from './History'
 
 export default function About() {
+    const location = useLocation()
     const slides = [
         {
             src: 'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1600&q=80',
@@ -44,6 +46,17 @@ export default function About() {
         },
     ]
 
+    React.useEffect(() => {
+        const hash = location.hash
+        if (hash) {
+            const id = hash.startsWith('#') ? hash.substring(1) : hash
+            const el = document.getElementById(id)
+            if (el && typeof el.scrollIntoView === 'function') {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }
+        }
+    }, [location.hash])
+
     return (
         <>
         <Hero
@@ -56,7 +69,9 @@ export default function About() {
         />
         <Container sx={{ py: 4 }}>
             <Divider sx={{ my: 4 }} />
-            <Values />
+            <Box id="mission" sx={{ scrollMarginTop: 80 }}>
+                <Values />
+            </Box>
             <Divider sx={{ my: 4 }} />
         </Container>
 
@@ -74,7 +89,9 @@ export default function About() {
                 <Team />
             </Box>
             <Divider sx={{ my: 4 }} />
-            <History />
+            <Box id="history" sx={{ scrollMarginTop: 80 }}>
+                <History />
+            </Box>
         </Container>
         </>
     )

@@ -65,13 +65,15 @@ const routes = [
     },
     {
         path: '/about',
-        label: 'About',
+        label: 'Who We Are',
         component: About,
         showInNav: true,
         icon: InfoOutlined,
+        groupOnly: true,
         children: [
-        // Example subpage (enable later):
-        // { path: 'team', label: 'Team', component: Team, showInNav: false }
+            { path: '/about#mission', label: 'Our Mission' },
+            { path: '/about#team', label: 'Our Team' },
+            { path: '/about#history', label: 'Our History' },
         ],
     },
     {
