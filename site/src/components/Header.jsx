@@ -13,6 +13,7 @@ import MobileNavDrawer from './MobileNavDrawer'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp'
 
 export default function Header() {
     const [showBanner, setShowBanner] = React.useState(true)
@@ -58,6 +59,7 @@ export default function Header() {
                     {routes.filter(r => r.showInNav).map(r => {
                         const hasChildren = r.children && r.children.length > 0
                         const isGroupOnly = !!r.groupOnly || !r.component
+                        const isOpen = Boolean(menuAnchorEl) && menuRoute === r
                         if (!hasChildren) {
                             return (
                                 <Button
@@ -81,6 +83,8 @@ export default function Header() {
                                         sx={r.highlight ? { ml: 1 } : {}}
                                         aria-haspopup="true"
                                         aria-controls="nav-menu"
+                                        aria-expanded={isOpen ? true : undefined}
+                                        endIcon={isOpen ? <ArrowDropUpIcon fontSize="small" /> : <ArrowDropDownIcon fontSize="small" />}
                                         onClick={(e) => { setMenuAnchorEl(e.currentTarget); setMenuRoute(r); }}
                                     >
                                         {r.label}
@@ -96,13 +100,6 @@ export default function Header() {
                                         {r.label}
                                     </Button>
                                 )}
-                                <IconButton
-                                    size="small"
-                                    aria-label={`Open ${r.label} menu`}
-                                    onClick={(e) => { setMenuAnchorEl(e.currentTarget); setMenuRoute(r); }}
-                                >
-                                    <ArrowDropDownIcon />
-                                </IconButton>
                             </Box>
                         )
                     })}
