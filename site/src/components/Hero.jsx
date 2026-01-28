@@ -54,6 +54,9 @@ export default function Hero({
             subtitle: currentSlide?.subtitle,
             ctaLabel: currentSlide?.ctaLabel,
             ctaHref: currentSlide?.ctaHref,
+            // Optional logo support per slide
+            logoSrc: currentSlide?.logoSrc,
+            logoAlt: currentSlide?.logoAlt,
         })
 
     const justify = align === 'left' ? 'flex-start' : align === 'right' ? 'flex-end' : 'center'
@@ -105,12 +108,27 @@ export default function Hero({
             justifyContent: justify,
         }}>
             <Container maxWidth="lg">
-            {(overlay.title || overlay.subtitle) && (
+            {(overlay.logoSrc || overlay.title || overlay.subtitle) && (
                 <Box sx={{ textAlign }}>
-                {overlay.title && (
-                    <Typography variant="h2" component="h1" sx={{ color: '#fff', fontWeight: 700 }} gutterBottom>
-                    {overlay.title}
-                    </Typography>
+                {overlay.logoSrc ? (
+                    <Box sx={{ mb: 2 }}>
+                        <Box
+                            component="img"
+                            src={overlay.logoSrc}
+                            alt={overlay.logoAlt || 'Logo'}
+                            sx={{
+                                maxWidth: '60%',
+                                height: 'auto',
+                                filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.4))',
+                            }}
+                        />
+                    </Box>
+                ) : (
+                    overlay.title && (
+                        <Typography variant="h2" component="h1" sx={{ color: '#fff', fontWeight: 700 }} gutterBottom>
+                        {overlay.title}
+                        </Typography>
+                    )
                 )}
                 {overlay.subtitle && (
                     <Typography variant="h6" sx={{ color: '#fff', opacity: 0.9 }} gutterBottom>
