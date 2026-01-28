@@ -29,6 +29,9 @@ const theme = createTheme({
         secondary: '#4B5563',
         },
     },
+    typography: {
+        fontFamily: '"PT Serif", serif',
+    },
     components: {
         MuiAppBar: {
         styleOverrides: {
