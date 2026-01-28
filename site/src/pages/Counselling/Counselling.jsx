@@ -52,30 +52,41 @@ export default function Counselling() {
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={5}>
-                        <Card sx={{ height: '100%' }}>
-                            <CardContent>
-                                <Typography variant="h5" gutterBottom>
-                                    Contact & Booking
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary" paragraph>
-                                    Appointments are available Monday–Friday, with some evening options.
-                                    Serving Thunder Bay and northern Ontario communities.
-                                </Typography>
-                                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
+                        <Stack spacing={2}>
+                            <Card>
+                                <CardContent>
+                                    <Typography variant="h5" gutterBottom>
+                                        Booking Counselling
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary" paragraph>
+                                        Appointments are available Monday–Friday, with some evening options.
+                                        Serving Thunder Bay and northern Ontario communities.
+                                    </Typography>
                                     <Button
                                         component={Link}
                                         to="/contact?area=Counselling"
-                                        variant="contained"
-                                        color="primary"
+                                        variant="outlined"
+                                        color="text.primary"
                                     >
                                         Request an Appointment
                                     </Button>
-                                    <Button component={Link} to="/donate" color="inherit">
+                                </CardContent>
+                            </Card>
+
+                            <Card variant="outlined" sx={{ borderColor: 'primary.main' }}>
+                                <CardContent>
+                                    <Typography variant="h5" gutterBottom color="primary">
+                                        Donating to Counselling
+                                    </Typography>
+                                    <Typography variant="body2" paragraph>
+                                        Your gift helps make Counselling services accessible to more individuals, couples, and families.
+                                    </Typography>
+                                    <Button component={Link} to="/donate" variant="contained" color="primary">
                                         Support Counselling
                                     </Button>
-                                </Stack>
-                            </CardContent>
-                        </Card>
+                                </CardContent>
+                            </Card>
+                        </Stack>
                     </Grid>
                 </Grid>
 
