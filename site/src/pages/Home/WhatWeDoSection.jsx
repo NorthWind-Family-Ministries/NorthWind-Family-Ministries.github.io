@@ -2,6 +2,7 @@ import React from 'react'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
 import FeatureCards from '../../components/FeatureCards'
 
@@ -43,7 +44,7 @@ export default function WhatWeDoSection() {
             What We Do
         </Typography>
         <Typography variant="body1" paragraph>
-            Every NorthWind program aligns to one of four areas. Explore each area to see programs and next steps that fit your journey.
+            Every NorthWind program aligns to one of four pillars. Explore each pillar to see programs and next steps that fit your journey.
         </Typography>
 
         <FeatureCards
@@ -79,6 +80,15 @@ export default function WhatWeDoSection() {
             <Typography variant="body2" color="text.secondary">
             Looking for something specific? Contact us and we'll help you find the right program and next steps.
             </Typography>
+            <Button
+                variant="contained"
+                color="primary"
+                sx={{ mt: 1 }}
+                component={Link}
+                to="/contact"
+            >
+                Contact Us
+            </Button>
         </Box>
         </Container>
     )
