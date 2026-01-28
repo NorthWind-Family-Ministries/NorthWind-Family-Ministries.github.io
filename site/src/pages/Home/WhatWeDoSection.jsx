@@ -1,16 +1,9 @@
 import React from 'react'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
-import Grid from '@mui/material/Grid'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardActions from '@mui/material/CardActions'
-import Button from '@mui/material/Button'
-import Chip from '@mui/material/Chip'
-import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
-import CardMedia from '@mui/material/CardMedia'
 import { Link } from 'react-router-dom'
+import FeatureCards from '../../components/FeatureCards'
 
 const areas = [
     {
@@ -53,41 +46,24 @@ export default function WhatWeDoSection() {
             Every NorthWind program aligns to one of four areas. Explore each area to see programs and next steps that fit your journey.
         </Typography>
 
-        <Grid container spacing={3} sx={{ mt: 1 }}>
-            {areas.map((area) => (
-            <Grid key={area.key} item xs={12} md={6}>
-                <Card sx={{ height: '100%' }}>
-                <CardMedia
-                    component="img"
-                    height="200"
-                    image={area.image || placeholderImage(area.title)}
-                    alt={`${area.title} banner`}
-                />
-                <CardContent>
-                    <Typography variant="h5" component="h2" gutterBottom>
-                    {area.title}
-                    </Typography>
-                    <Typography variant="body1" color="text.secondary">
-                    {area.description}
-                    </Typography>
-                </CardContent>
-                <CardActions sx={{ px: 2, pb: 2 }}>
-                    <Button
-                    component={Link}
-                    to={area.key === 'counselling' ? '/what-we-do/counselling' : `/contact?area=${encodeURIComponent(area.title)}`}
-                    variant="contained"
-                    color="primary"
-                    >
-                    {area.key === 'counselling' ? 'Explore Counselling' : 'View Programs'}
-                    </Button>
-                    <Button component={Link} to="/donate" color="inherit">
-                    Support This Work
-                    </Button>
-                </CardActions>
-                </Card>
-            </Grid>
-            ))}
-        </Grid>
+        <FeatureCards
+            spacing={3}
+            itemMd={6}
+            gridContainerProps={{ sx: { mt: 1 } }}
+            items={areas.map((area) => ({
+                title: area.title,
+                subtitle: area.description,
+                button: {
+                    label: area.key === 'counselling' ? 'Explore Counselling' : 'View Programs',
+                    variant: 'contained',
+                    color: 'primary',
+                    props: {
+                        component: Link,
+                        to: area.key === 'counselling' ? '/what-we-do/counselling' : `/contact?area=${encodeURIComponent(area.title)}`,
+                    },
+                },
+            }))}
+        />
 
         <Box sx={{ mt: 4 }}>
             <Typography variant="body2" color="text.secondary">

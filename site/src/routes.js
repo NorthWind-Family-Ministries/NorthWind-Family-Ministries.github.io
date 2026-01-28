@@ -5,14 +5,16 @@ import Donate from './pages/Donate'
 import NotFound from './pages/NotFound'
 import Privacy from './pages/Privacy'
 import Contact from './pages/Contact'
+import Counselling from './pages/Counselling'
+import WhatWeDo from './pages/WhatWeDo'
+import LifeBuild from './pages/LifeBuild'
+
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
 import VolunteerActivism from '@mui/icons-material/VolunteerActivism'
 import PsychologyOutlined from '@mui/icons-material/PsychologyOutlined'
 import CategoryOutlined from '@mui/icons-material/CategoryOutlined'
-// Removed standalone WhatWeDo page; now a Home section
-import Counselling from './pages/Counselling'
-import WhatWeDo from './pages/WhatWeDo'
+import BuildCircleOutlined from '@mui/icons-material/BuildCircleOutlined'
 
 const routes = [
     {
@@ -46,6 +48,13 @@ const routes = [
                 component: Counselling,
                 showInNav: false,
                 icon: PsychologyOutlined,
+            },
+            {
+                path: 'lifebuild',
+                label: 'LifeBuild',
+                component: LifeBuild,
+                showInNav: false,
+                icon: BuildCircleOutlined,
             },
         ],
     },

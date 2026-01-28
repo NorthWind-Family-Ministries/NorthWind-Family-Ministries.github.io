@@ -25,7 +25,7 @@ const areas = [
         description:
             'Practical supports and guided learning for everyday life — parenting, financial skills, employment readiness, and healthy relationships to help families thrive.',
         image: '/images/areas/lifebuild.jpg',
-        href: '/contact?area=LifeBuild',
+        href: '/what-we-do/lifebuild',
     },
     {
         key: 'land-based',
