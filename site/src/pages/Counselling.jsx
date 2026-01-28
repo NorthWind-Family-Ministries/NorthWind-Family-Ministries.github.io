@@ -11,6 +11,7 @@ import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
+import FeatureCards from '../components/FeatureCards'
 
 export default function Counselling() {
     return (
@@ -82,69 +83,42 @@ export default function Counselling() {
                     <Typography variant="h4" gutterBottom>
                         Services
                     </Typography>
-                    <Grid container spacing={3}>
-                        <Grid item xs={12} md={4}>
-                            <Card sx={{ height: '100%' }}>
-                                <CardContent>
-                                    <Typography variant="h6" gutterBottom>
-                                        Counselling
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary" paragraph>
-                                        Professional counselling and psychotherapy for individuals, couples,
-                                        and families. Support for trauma, grief, relationship challenges, and
-                                        life transitions.
-                                    </Typography>
-                                    <Button
-                                        component={Link}
-                                        to="/contact?area=Counselling"
-                                        variant="outlined"
-                                    >
-                                        Book Counselling
-                                    </Button>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                        <Grid item xs={12} md={4}>
-                            <Card sx={{ height: '100%' }}>
-                                <CardContent>
-                                    <Typography variant="h6" gutterBottom>
-                                        Family Strengthening Program
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary" paragraph>
-                                        Programs that build resilience and healthy relationships in families —
-                                        practical supports and guided learning to strengthen the home.
-                                    </Typography>
-                                    <Button
-                                        component={Link}
-                                        to="/contact?area=Family%20Strengthening%20Program"
-                                        variant="outlined"
-                                    >
-                                        Ask About FSP
-                                    </Button>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                        <Grid item xs={12} md={4}>
-                            <Card sx={{ height: '100%' }}>
-                                <CardContent>
-                                    <Typography variant="h6" gutterBottom>
-                                        Northern Services (Compass)
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary" paragraph>
-                                        Coordinated supports for northern and Indigenous communities, helping
-                                        people access care and resources with culturally responsive pathways.
-                                    </Typography>
-                                    <Button
-                                        component={Link}
-                                        to="/contact?area=Northern%20Services%20(Compass)"
-                                        variant="outlined"
-                                    >
-                                        Connect with Compass
-                                    </Button>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                    </Grid>
+                    <FeatureCards
+                        spacing={3}
+                        itemMd={4}
+                        items={[
+                            {
+                                title: 'Counselling',
+                                subtitle:
+                                    'Professional counselling and psychotherapy for individuals, couples, and families. Support for trauma, grief, relationship challenges, and life transitions.',
+                                button: {
+                                    label: 'Book Counselling',
+                                    variant: 'outlined',
+                                    props: { component: Link, to: '/contact?area=Counselling' },
+                                },
+                            },
+                            {
+                                title: 'Family Strengthening Program',
+                                subtitle:
+                                    'Programs that build resilience and healthy relationships in families — practical supports and guided learning to strengthen the home.',
+                                button: {
+                                    label: 'Ask About FSP',
+                                    variant: 'outlined',
+                                    props: { component: Link, to: '/contact?area=Family%20Strengthening%20Program' },
+                                },
+                            },
+                            {
+                                title: 'Northern Services (Compass)',
+                                subtitle:
+                                    'Coordinated supports for northern and Indigenous communities, helping people access care and resources with culturally responsive pathways.',
+                                button: {
+                                    label: 'Connect with Compass',
+                                    variant: 'outlined',
+                                    props: { component: Link, to: '/contact?area=Northern%20Services%20(Compass)' },
+                                },
+                            },
+                        ]}
+                    />
                 </Box>
             </Container>
         </>
