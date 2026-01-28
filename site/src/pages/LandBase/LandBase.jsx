@@ -9,15 +9,15 @@ import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Chip from '@mui/material/Chip'
 import { Link } from 'react-router-dom'
-import Hero from '../components/Hero'
-import FeatureCards from '../components/FeatureCards'
+import Hero from '../../components/Hero'
+import FeatureCards from '../../components/FeatureCards'
 
 export default function LandBase() {
     return (
         <>
             <Hero
                 slides={[{
-                    src: '/images/areas/landbased.jpg',
+                    src: '../images/areas/landbased.jpg',
                     alt: 'Land Based',
                     title: 'Land Based',
                     subtitle: 'Healing and learning connected to land, culture, and community.',

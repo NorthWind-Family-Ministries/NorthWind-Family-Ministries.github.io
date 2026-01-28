@@ -9,7 +9,7 @@ import Chip from '@mui/material/Chip'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import { Link } from 'react-router-dom'
-import Hero from '../components/Hero'
+import Hero from '../../components/Hero'
 
 export default function LifeBuild() {
     return (
