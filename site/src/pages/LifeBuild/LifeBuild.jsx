@@ -114,9 +114,9 @@ export default function LifeBuild() {
                                 subtitle:
                                     'Hands‑on cooking and nutrition supports for families — practical, budget‑friendly meals and kitchen confidence.',
                                 button: {
-                                    label: 'Ask About Cooking For Life',
+                                    label: 'Learn About Cooking For Life',
                                     variant: 'outlined',
-                                    props: { component: Link, to: '/contact?area=Cooking%20For%20Life' },
+                                    props: { component: Link, to: '/lifebuild/cooking-for-life' },
                                 },
                             },
                         ]}

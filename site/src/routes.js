@@ -8,6 +8,7 @@ import Contact from './pages/Contact'
 import Counselling from './pages/Counselling'
 import FSP from './pages/Counselling/FSP'
 import LifeBuild from './pages/LifeBuild'
+import CookingForLife from './pages/LifeBuild/CookingForLife'
 import LandBase from './pages/LandBase'
 import SpiritualGrowth from './pages/SpiritualGrowth'
 
@@ -56,6 +57,15 @@ const routes = [
                 component: LifeBuild,
                 showInNav: false,
                 icon: BuildCircleOutlined,
+                children: [
+                    {
+                        path: 'cooking-for-life',
+                        label: 'Cooking For Life',
+                        component: CookingForLife,
+                        showInNav: false,
+                        icon: BuildCircleOutlined,
+                    },
+                ],
             },
             {
                 path: '/landbase',
