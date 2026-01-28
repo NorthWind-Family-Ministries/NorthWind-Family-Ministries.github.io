@@ -43,6 +43,27 @@ export default function Home() {
       />
       <WhatWeDoSection />
       
+      <Hero
+        slides={[
+          {
+            src: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            alt: 'Leadership',
+          },
+        ]}
+        overlayMode="static"
+        staticOverlay={{
+          title: 'Who We Are',
+          subtitle: 'Meet the team behind our mission.',
+          ctaLabel: 'Meet the Team',
+          ctaHref: '/about#team',
+        }}
+        height="50vh"
+        align="center"
+        darkOverlay
+        showIndicators
+      />
+      
+      
     </>
   )
 }

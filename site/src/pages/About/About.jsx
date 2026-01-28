@@ -1,5 +1,6 @@
 import React from 'react'
 import Container from '@mui/material/Container'
+import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 
 import Hero from '../../components/Hero'
@@ -69,7 +70,9 @@ export default function About() {
         />
 
         <Container sx={{ py: 4 }}>
-            <Team />
+            <Box id="team" sx={{ scrollMarginTop: 80 }}>
+                <Team />
+            </Box>
             <Divider sx={{ my: 4 }} />
             <History />
         </Container>
