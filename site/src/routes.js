@@ -7,6 +7,7 @@ import Privacy from './pages/Privacy'
 import Contact from './pages/Contact'
 import Counselling from './pages/Counselling'
 import LifeBuild from './pages/LifeBuild'
+import LandBase from './pages/LandBase'
 
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
@@ -14,6 +15,7 @@ import VolunteerActivism from '@mui/icons-material/VolunteerActivism'
 import PsychologyOutlined from '@mui/icons-material/PsychologyOutlined'
 import CategoryOutlined from '@mui/icons-material/CategoryOutlined'
 import BuildCircleOutlined from '@mui/icons-material/BuildCircleOutlined'
+import ParkOutlined from '@mui/icons-material/ParkOutlined'
 
 const routes = [
     {
@@ -22,17 +24,6 @@ const routes = [
         component: Home,
         showInNav: false,
         icon: HomeOutlined,
-    },
-    {
-        path: '/about',
-        label: 'About Us',
-        component: About,
-        showInNav: true,
-        icon: InfoOutlined,
-        children: [
-        // Example subpage (enable later):
-        // { path: 'team', label: 'Team', component: Team, showInNav: false }
-        ],
     },
     {
         label: 'What We Do',
@@ -54,6 +45,24 @@ const routes = [
                 showInNav: false,
                 icon: BuildCircleOutlined,
             },
+            {
+                path: '/landbase',
+                label: 'Land Based',
+                component: LandBase,
+                showInNav: false,
+                icon: ParkOutlined,
+            },
+        ],
+    },
+    {
+        path: '/about',
+        label: 'About',
+        component: About,
+        showInNav: true,
+        icon: InfoOutlined,
+        children: [
+        // Example subpage (enable later):
+        // { path: 'team', label: 'Team', component: Team, showInNav: false }
         ],
     },
     {

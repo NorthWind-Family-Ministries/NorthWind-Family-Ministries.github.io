@@ -54,12 +54,22 @@ export default function WhatWeDoSection() {
                 title: area.title,
                 subtitle: area.description,
                 button: {
-                    label: area.key === 'counselling' ? 'Explore Counselling' : 'View Programs',
+                    label:
+                        area.key === 'counselling'
+                            ? 'Explore Counselling'
+                            : area.key === 'land-based'
+                            ? 'Explore Land Based'
+                            : 'View Programs',
                     variant: 'contained',
                     color: 'primary',
                     props: {
                         component: Link,
-                        to: area.key === 'counselling' ? '/counselling' : `/contact?area=${encodeURIComponent(area.title)}`,
+                        to:
+                            area.key === 'counselling'
+                                ? '/counselling'
+                                : area.key === 'land-based'
+                                ? '/landbase'
+                                : `/contact?area=${encodeURIComponent(area.title)}`,
                     },
                 },
             }))}
