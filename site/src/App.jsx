@@ -13,17 +13,23 @@ export default function App() {
 
                 <Box component="main" sx={{ flexGrow: 1 }}>
                     <Routes>
-                        {routes.map((route) => (
+                        {routes.filter(r => r.component).map((route) => (
                             <Route key={route.path} path={route.path} element={<route.component />} />
                         ))}
                         {routes.flatMap((route) =>
-                            (route.children || []).map((child) => (
-                                <Route
-                                    key={`${route.path}/${child.path}`}
-                                    path={`${route.path}/${child.path}`}
-                                    element={<child.component />}
-                                />
-                            ))
+                            (route.children || []).map((child) => {
+                                const childPath = String(child.path || '')
+                                const fullPath = childPath.startsWith('/')
+                                    ? childPath
+                                    : `${route.path}/${childPath}`
+                                return (
+                                    <Route
+                                        key={fullPath}
+                                        path={fullPath}
+                                        element={<child.component />}
+                                    />
+                                )
+                            })
                         )}
                     </Routes>
                 </Box>

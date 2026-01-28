@@ -19,9 +19,9 @@ export default function Values() {
 
             <FeatureCards
                 items={[
-                    { title: 'Whole Life Discipleship', subtitle: 'Growing Your Life', button: { label: 'Learn More', href: '/what-we-do/lifebuild' } },
-                    { title: 'Family Healing', subtitle: 'Bring health to your relationships', button: { label: 'Learn More', href: '/what-we-do/counselling' } },
-                    { title: 'A Vibrant Community', subtitle: 'Develop a sense of belonging', button: { label: 'Learn More', href: '/what-we-do' } },
+                    { title: 'Whole Life Discipleship', subtitle: 'Growing Your Life', button: { label: 'Learn More', href: '/lifebuild' } },
+                    { title: 'Family Healing', subtitle: 'Bring health to your relationships', button: { label: 'Learn More', href: '/counselling' } },
+                    { title: 'A Vibrant Community', subtitle: 'Develop a sense of belonging', button: { label: 'Learn More', href: '/lifebuild' } },
                 ]}
             />
         </Box>

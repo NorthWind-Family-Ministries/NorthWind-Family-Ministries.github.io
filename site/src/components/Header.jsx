@@ -57,10 +57,11 @@ export default function Header() {
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                     {routes.filter(r => r.showInNav).map(r => {
                         const hasChildren = r.children && r.children.length > 0
+                        const isGroupOnly = !!r.groupOnly || !r.component
                         if (!hasChildren) {
                             return (
                                 <Button
-                                    key={r.path}
+                                    key={r.path || r.label}
                                     component={Link}
                                     to={r.path}
                                     color={r.highlight ? 'primary' : 'inherit'}
@@ -72,16 +73,29 @@ export default function Header() {
                             )
                         }
                         return (
-                            <Box key={r.path} sx={{ display: 'inline-flex', alignItems: 'center' }}>
-                                <Button
-                                    component={Link}
-                                    to={r.path}
-                                    color={r.highlight ? 'primary' : 'inherit'}
-                                    variant={r.highlight ? 'contained' : 'text'}
-                                    sx={r.highlight ? { ml: 1 } : {}}
-                                >
-                                    {r.label}
-                                </Button>
+                            <Box key={r.path || r.label} sx={{ display: 'inline-flex', alignItems: 'center' }}>
+                                {isGroupOnly ? (
+                                    <Button
+                                        color={r.highlight ? 'primary' : 'inherit'}
+                                        variant={r.highlight ? 'contained' : 'text'}
+                                        sx={r.highlight ? { ml: 1 } : {}}
+                                        aria-haspopup="true"
+                                        aria-controls="nav-menu"
+                                        onClick={(e) => { setMenuAnchorEl(e.currentTarget); setMenuRoute(r); }}
+                                    >
+                                        {r.label}
+                                    </Button>
+                                ) : (
+                                    <Button
+                                        component={Link}
+                                        to={r.path}
+                                        color={r.highlight ? 'primary' : 'inherit'}
+                                        variant={r.highlight ? 'contained' : 'text'}
+                                        sx={r.highlight ? { ml: 1 } : {}}
+                                    >
+                                        {r.label}
+                                    </Button>
+                                )}
                                 <IconButton
                                     size="small"
                                     aria-label={`Open ${r.label} menu`}
@@ -97,16 +111,20 @@ export default function Header() {
                         open={Boolean(menuAnchorEl)}
                         onClose={() => { setMenuAnchorEl(null); setMenuRoute(null); }}
                     >
-                        {menuRoute?.children?.map(child => (
-                            <MenuItem
-                                key={`${menuRoute.path}-${child.path}`}
-                                component={Link}
-                                to={`${menuRoute.path}/${child.path}`}
-                                onClick={() => { setMenuAnchorEl(null); setMenuRoute(null); }}
-                            >
-                                {child.label || child.path}
-                            </MenuItem>
-                        ))}
+                        {menuRoute?.children?.map(child => {
+                            const childPath = String(child.path || '')
+                            const to = childPath.startsWith('/') ? childPath : `${menuRoute.path}/${childPath}`
+                            return (
+                                <MenuItem
+                                    key={to}
+                                    component={Link}
+                                    to={to}
+                                    onClick={() => { setMenuAnchorEl(null); setMenuRoute(null); }}
+                                >
+                                    {child.label || childPath}
+                                </MenuItem>
+                            )
+                        })}
                     </Menu>
                 </Box>
                 {/* Mobile menu icon */}

@@ -6,7 +6,6 @@ import NotFound from './pages/NotFound'
 import Privacy from './pages/Privacy'
 import Contact from './pages/Contact'
 import Counselling from './pages/Counselling'
-import WhatWeDo from './pages/WhatWeDo'
 import LifeBuild from './pages/LifeBuild'
 
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
@@ -36,21 +35,20 @@ const routes = [
         ],
     },
     {
-        path: '/what-we-do',
         label: 'What We Do',
-        component: WhatWeDo,
         showInNav: true,
         icon: CategoryOutlined,
+        groupOnly: true,
         children: [
             {
-                path: 'counselling',
+                path: '/counselling',
                 label: 'Counselling',
                 component: Counselling,
                 showInNav: false,
                 icon: PsychologyOutlined,
             },
             {
-                path: 'lifebuild',
+                path: '/lifebuild',
                 label: 'LifeBuild',
                 component: LifeBuild,
                 showInNav: false,

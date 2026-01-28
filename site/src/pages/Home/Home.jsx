@@ -11,7 +11,7 @@ export default function Home() {
       <Hero
         slides={[
           {
-            src: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=2069&auto=format&fit=crop',
+            src: 'public/images/areas/landbased.jpg',
             alt: 'Community gathering',
             title: 'Welcome to NorthWind Family Ministries',
             subtitle: 'Strengthening families, fostering hope, and serving our community.',
@@ -19,7 +19,7 @@ export default function Home() {
             ctaHref: '/donate',
           },
           {
-            src: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop',
+            src: 'public/images/areas/counselling.jpg',
             alt: 'Counseling and care',
             title: 'Counseling & Care',
             subtitle: 'Compassionate support for growth, healing, and resilience.',

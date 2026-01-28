@@ -59,7 +59,7 @@ export default function WhatWeDoSection() {
                     color: 'primary',
                     props: {
                         component: Link,
-                        to: area.key === 'counselling' ? '/what-we-do/counselling' : `/contact?area=${encodeURIComponent(area.title)}`,
+                        to: area.key === 'counselling' ? '/counselling' : `/contact?area=${encodeURIComponent(area.title)}`,
                     },
                 },
             }))}
