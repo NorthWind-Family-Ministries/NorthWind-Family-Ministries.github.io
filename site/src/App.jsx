@@ -31,6 +31,23 @@ export default function App() {
                                 )
                             })
                         )}
+                        {routes.flatMap((route) =>
+                            (route.children || []).flatMap((child) =>
+                                (child.children || []).map((sub) => {
+                                    const subPath = String(sub.path || '')
+                                    const fullSubPath = subPath.startsWith('/')
+                                        ? subPath
+                                        : `${child.path}/${subPath}`
+                                    return (
+                                        <Route
+                                            key={fullSubPath}
+                                            path={fullSubPath}
+                                            element={<sub.component />}
+                                        />
+                                    )
+                                })
+                            )
+                        )}
                     </Routes>
                 </Box>
                 <Footer />

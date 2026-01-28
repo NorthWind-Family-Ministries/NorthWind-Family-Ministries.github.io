@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound'
 import Privacy from './pages/Privacy'
 import Contact from './pages/Contact'
 import Counselling from './pages/Counselling'
+import FSP from './pages/Counselling/FSP'
 import LifeBuild from './pages/LifeBuild'
 import LandBase from './pages/LandBase'
 import SpiritualGrowth from './pages/SpiritualGrowth'
@@ -39,6 +40,15 @@ const routes = [
                 component: Counselling,
                 showInNav: false,
                 icon: PsychologyOutlined,
+                children: [
+                    {
+                        path: 'fsp',
+                        label: 'Family Strengthening Program',
+                        component: FSP,
+                        showInNav: false,
+                        icon: PsychologyOutlined,
+                    },
+                ],
             },
             {
                 path: '/lifebuild',

@@ -12,8 +12,12 @@ import MenuIcon from '@mui/icons-material/Menu'
 import MobileNavDrawer from './MobileNavDrawer'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
+import Accordion from '@mui/material/Accordion'
+import AccordionSummary from '@mui/material/AccordionSummary'
+import AccordionDetails from '@mui/material/AccordionDetails'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 export default function Header() {
     const [showBanner, setShowBanner] = React.useState(true)
@@ -111,15 +115,48 @@ export default function Header() {
                         {menuRoute?.children?.map(child => {
                             const childPath = String(child.path || '')
                             const to = childPath.startsWith('/') ? childPath : `${menuRoute.path}/${childPath}`
+                            const hasGrandchildren = Array.isArray(child.children) && child.children.length > 0
+                            if (!hasGrandchildren) {
+                                return (
+                                    <MenuItem
+                                        key={to}
+                                        component={Link}
+                                        to={to}
+                                        onClick={() => { setMenuAnchorEl(null); setMenuRoute(null); }}
+                                    >
+                                        {child.label || childPath}
+                                    </MenuItem>
+                                )
+                            }
                             return (
-                                <MenuItem
-                                    key={to}
-                                    component={Link}
-                                    to={to}
-                                    onClick={() => { setMenuAnchorEl(null); setMenuRoute(null); }}
-                                >
-                                    {child.label || childPath}
-                                </MenuItem>
+                                <Accordion key={to} elevation={0} disableGutters sx={{ boxShadow: 'none', '&::before': { display: 'none' } }}>
+                                    <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 2 }}>
+                                        <Typography>{child.label || childPath}</Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails sx={{ pt: 0 }}>
+                                        <MenuItem
+                                            component={Link}
+                                            to={to}
+                                            onClick={() => { setMenuAnchorEl(null); setMenuRoute(null); }}
+                                        >
+                                            {child.label || childPath}
+                                        </MenuItem>
+                                        {child.children.map(sub => {
+                                            const subPath = String(sub.path || '')
+                                            const to2 = subPath.startsWith('/') ? subPath : `${to}/${subPath}`
+                                            return (
+                                                <MenuItem
+                                                    key={to2}
+                                                    component={Link}
+                                                    to={to2}
+                                                    onClick={() => { setMenuAnchorEl(null); setMenuRoute(null); }}
+                                                >
+                                                    {sub.label || subPath}
+                                                </MenuItem>
+                                            )
+                                        })}
+                                    </AccordionDetails>
+                                </Accordion>
                             )
                         })}
                     </Menu>
