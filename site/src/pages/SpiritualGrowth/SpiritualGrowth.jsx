@@ -47,15 +47,15 @@ export default function SpiritualGrowth() {
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={5}>
-                        <Card sx={{ height: '100%' }}>
-                            <CardContent>
-                                <Typography variant="h5" gutterBottom>
-                                    Get Connected
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary" paragraph>
-                                    Interested in courses, discipleship groups, or retreats? Reach out and we’ll help you find the right next step.
-                                </Typography>
-                                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
+                        <Stack spacing={2}>
+                            <Card>
+                                <CardContent>
+                                    <Typography variant="h5" gutterBottom>
+                                        Get Connected
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary" paragraph>
+                                        Interested in courses, discipleship groups, or retreats? Reach out and we’ll help you find the right next step.
+                                    </Typography>
                                     <Button
                                         component={Link}
                                         to="/contact?area=Spiritual%20Growth"
@@ -64,12 +64,23 @@ export default function SpiritualGrowth() {
                                     >
                                         Contact Us
                                     </Button>
-                                    <Button component={Link} to="/donate" color="inherit">
+                                </CardContent>
+                            </Card>
+
+                            <Card variant="outlined" sx={{ borderColor: 'primary.main' }}>
+                                <CardContent>
+                                    <Typography variant="h5" gutterBottom color="primary">
+                                        Donating to Spiritual Growth
+                                    </Typography>
+                                    <Typography variant="body2" paragraph>
+                                        Your gift helps make Spiritual Growth programs accessible and supports learning, mentorship, and retreats.
+                                    </Typography>
+                                    <Button component={Link} to="/donate" variant="contained" color="primary">
                                         Support Spiritual Growth
                                     </Button>
-                                </Stack>
-                            </CardContent>
-                        </Card>
+                                </CardContent>
+                            </Card>
+                        </Stack>
                     </Grid>
                 </Grid>
 
