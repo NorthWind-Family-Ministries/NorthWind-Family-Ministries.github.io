@@ -108,7 +108,7 @@ export default function Counselling() {
                                 },
                             },
                             {
-                                title: 'Northern Services (Compass)',
+                                title: 'Compass (Northern Services)',
                                 subtitle:
                                     'Coordinated supports for northern and Indigenous communities, helping people access care and resources with culturally responsive pathways.',
                                 button: {
