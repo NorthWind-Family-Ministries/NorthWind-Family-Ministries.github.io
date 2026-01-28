@@ -35,7 +35,7 @@ export default function LandBase() {
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={7}>
                         <Typography variant="h4" gutterBottom>
-                            theCove
+                            Land-Based Ministies
                         </Typography>
                         <Typography variant="body1" color="text.secondary" paragraph>
                             To hear the loons calling across the misty morning stillness of Lottit Lake (50 KM from Thunder Bay) brings a sense of peace and comfort—a nice start to a busy day at Eagle’s Cove. Before COVID-19 NorthWind held children, teen and family camps during the summer and youth retreats in the spring and fall. We trust these will happen again.
@@ -45,16 +45,15 @@ export default function LandBase() {
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={5}>
-                        <Card sx={{ height: '100%' }}>
-                            <CardContent>
-                                <Typography variant="h5" gutterBottom>
-                                    Get Connected
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary" paragraph>
-                                    Programs run seasonally and in partnership with communities.
-                                </Typography>
-                                <Divider sx={{ my: 2 }} />
-                                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
+                        <Stack spacing={2}>
+                            <Card>
+                                <CardContent>
+                                    <Typography variant="h5" gutterBottom>
+                                        Get Connected
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary" paragraph>
+                                        Programs run seasonally and in partnership with communities.
+                                    </Typography>
                                     <Button
                                         component={Link}
                                         to="/contact?area=Land%20Based"
@@ -63,12 +62,23 @@ export default function LandBase() {
                                     >
                                         Ask About Land Based
                                     </Button>
-                                    <Button component={Link} to="/donate" color="inherit">
+                                </CardContent>
+                            </Card>
+
+                            <Card variant="outlined" sx={{ borderColor: 'primary.main' }}>
+                                <CardContent>
+                                    <Typography variant="h5" gutterBottom color="primary">
+                                        Donating to Land Based
+                                    </Typography>
+                                    <Typography variant="body2" paragraph>
+                                        Your gift helps sustain seasonal programming and community partnerships.
+                                    </Typography>
+                                    <Button component={Link} to="/donate" variant="contained" color="primary">
                                         Support Land Based
                                     </Button>
-                                </Stack>
-                            </CardContent>
-                        </Card>
+                                </CardContent>
+                            </Card>
+                        </Stack>
                     </Grid>
                 </Grid>
             </Container>
@@ -81,7 +91,7 @@ export default function LandBase() {
                     items={[
                         {
                             title: 'Camps',
-                            subtitle: 'Seasonal camps for children, teens, and families at Eagle’s Cove.',
+                            subtitle: 'Seasonal camps for children, teens, and families at theCove.',
                             button: {
                                 label: 'Ask About Camps',
                                 variant: 'contained',
