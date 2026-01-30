@@ -9,6 +9,7 @@ import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Box from '@mui/material/Box'
 import MuiLink from '@mui/material/Link'
+import Alert from '@mui/material/Alert'
 import { Link } from 'react-router-dom'
 import Hero from '../../components/Hero'
 
@@ -66,17 +67,30 @@ export default function CookingForLife() {
                                 <Typography variant="body1">• Family‑friendly, practical recipes</Typography>
                             </Stack>
                             <Divider sx={{ my: 2 }} />
-                            <Typography variant="body2" color="text.secondary" paragraph>
-                                Programs run seasonally with flexible formats for families and groups.
+                            <Typography variant="h5" gutterBottom>
+                                Class Types
                             </Typography>
-                            <Button
-                                component={Link}
-                                to="/contact?area=Cooking%20For%20Life"
-                                variant="outlined"
-                                color="text.primary"
-                            >
-                                Ask About Cooking For Life
-                            </Button>
+                            <Typography variant="body2" color="text.secondary" paragraph>
+                                There are three ways to participate in Cooking For Life:
+                            </Typography>
+                            <Stack spacing={1} sx={{ mb: 2 }}>
+                                <Typography variant="body1">• <MuiLink href="#next-step" underline="hover">Next Steps</MuiLink>: In‑person sessions at our Program Facilities</Typography>
+                                {/* Add Program Facilities Address as a sub-item */}
+                                <Typography variant="body2" color="text.secondary" paragraph>
+                                    123 Main St, Anytown, USA
+                                </Typography>
+
+                                <Typography variant="body1">• <MuiLink href="#online" underline="hover">Online</MuiLink>: Live via Zoom</Typography>
+                                <Typography variant="body1">• <MuiLink href="#redwood" underline="hover">Redwood Foodbank</MuiLink>: Paused, join waitlist</Typography>
+                            </Stack>
+                            <Divider sx={{ my: 2 }} />
+                            <Typography variant="h5" gutterBottom>
+                                Meet the Team
+                            </Typography>
+                            <Stack direction="row" spacing={1} flexWrap="wrap">
+                                <Button component={Link} to="/about#team-jasmin-maki-maunus" variant="outlined" size="small">Jasmin Maki-Maunus</Button>
+                                <Button component={Link} to="/about#team-demerai-meekis" variant="outlined" size="small">Demerai Meekis (former)</Button>
+                            </Stack>
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={5}>
@@ -156,156 +170,143 @@ export default function CookingForLife() {
                     </Grid>
                 </Grid>
             </Container>
-
-            <Container sx={{ pb: 4 }}>
-                <Box sx={{ mt: 2 }}>
-                    <Typography variant="h4" gutterBottom>
-                        Program Details
-                    </Typography>
-                    <Typography variant="body1" paragraph>
-                        Sessions are offered in small groups and community settings. Materials and ingredients are provided
-                        when possible. Please reach out to discuss availability and options for your family or community.
-                    </Typography>
-                    <Button component={Link} to="/contact?area=Cooking%20For%20Life" variant="contained" color="primary">
-                        Get Started
-                    </Button>
-                </Box>
-
-            </Container>
-                {/* Next Step section with Hero and description + form in card */}
-                <Box id="next-step" sx={{ mt: 6 }}>
-                    <Hero
-                        slides={[{ src: '/images/areas/lifebuild.jpg', alt: 'Cooking For Life - Next Step' }]}
-                        overlayMode="static"
-                        staticOverlay={{ title: 'In‑Person: Next Step', subtitle: 'Hands‑on sessions at Next Step.' }}
-                        height="40vh"
-                        align="left"
-                        darkOverlay
-                        showIndicators={false}
-                    />
-                    <Container sx={{ mt: 3 }}>
-                        <Grid container spacing={3} alignItems="stretch">
-                            <Grid item xs={12} md={7}>
-                                <Typography variant="h5" gutterBottom>
-                                    In‑Person: Next Step
-                                </Typography>
-                                <Typography variant="body1" paragraph>
-                                    Practice skills together in a welcoming kitchen space. Learn safe food handling, label reading,
-                                    and practical recipes with facilitators on hand to guide you.
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    Ideal for small groups and families wanting hands‑on experience.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12} md={5}>
-                                <Card variant="outlined" sx={{ height: '100%' }}>
-                                    <CardContent>
-                                        {import.meta.env?.VITE_CTCT_LIFEBUILD_NEXTSTEP_FORM_ID ? (
-                                            <div
-                                                className="ctct-inline-form"
-                                                data-form-id={import.meta.env.VITE_CTCT_LIFEBUILD_NEXTSTEP_FORM_ID}
-                                            />
-                                        ) : (
-                                            <Button component={Link} to="/contact?area=Cooking%20For%20Life%20Next%20Step" variant="contained" color="primary">
-                                                Contact Us
-                                            </Button>
-                                        )}
-                                    </CardContent>
-                                </Card>
-                            </Grid>
+            {/* Next Step section with Hero and description + form in card */}
+            <Box id="next-step" sx={{ mt: 6 }}>
+                <Hero
+                    slides={[{ src: '/images/areas/lifebuild.jpg', alt: 'Cooking For Life - Next Step' }]}
+                    overlayMode="static"
+                    staticOverlay={{ title: 'At Next Steps', subtitle: 'In-person sessions' }}
+                    height="40vh"
+                    align="left"
+                    darkOverlay
+                    showIndicators={false}
+                />
+                <Container sx={{ mt: 3 }}>
+                    <Grid container spacing={3} alignItems="stretch">
+                        <Grid item xs={12} md={7}>
+                            <Typography variant="h5" gutterBottom>
+                                In‑Person: Next Step
+                            </Typography>
+                            <Typography variant="body1" paragraph>
+                                Practice skills together in a welcoming kitchen space. Learn safe food handling, label reading,
+                                and practical recipes with facilitators on hand to guide you.
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Ideal for small groups and families wanting hands‑on experience.
+                            </Typography>
                         </Grid>
-                    </Container>
-                </Box>
-                {/* Online Program section with Hero and description + form in card */}
-                <Box id="online" sx={{ mt: 6 }}>
-                    <Hero
-                        slides={[{ src: '/images/areas/lifebuild.jpg', alt: 'Cooking For Life - Online' }]}
-                        overlayMode="static"
-                        staticOverlay={{ title: 'Online', subtitle: 'Flexible, guided sessions from home.' }}
-                        height="40vh"
-                        align="left"
-                        darkOverlay
-                        showIndicators={false}
-                    />
-                    <Container sx={{ mt: 3 }}>
-                        <Grid container spacing={3} alignItems="stretch">
-                            <Grid item xs={12} md={7}>
-                                <Typography variant="h5" gutterBottom>
-                                    Online Classes
-                                </Typography>
-                                <Typography variant="body1" paragraph>
-                                    Join Cooking For Life from home with live, interactive support. Build kitchen confidence
-                                    through budget‑friendly meal planning, basic nutrition, and practical recipes you can make
-                                    with common ingredients.
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    Great for families looking for flexible scheduling and step‑by‑step guidance.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12} md={5}>
-                                <Card variant="outlined" sx={{ height: '100%' }}>
-                                    <CardContent>
-                                        {import.meta.env?.VITE_CTCT_LIFEBUILD_ONLINE_FORM_ID ? (
-                                            <div
-                                                className="ctct-inline-form"
-                                                data-form-id={import.meta.env.VITE_CTCT_LIFEBUILD_ONLINE_FORM_ID}
-                                            />
-                                        ) : (
-                                            <Button component={Link} to="/contact?area=Cooking%20For%20Life%20Online" variant="contained" color="primary">
-                                                Contact Us
-                                            </Button>
-                                        )}
-                                    </CardContent>
-                                </Card>
-                            </Grid>
+                        <Grid item xs={12} md={5}>
+                            <Card variant="outlined" sx={{ height: '100%' }}>
+                                <CardContent>
+                                    {import.meta.env?.VITE_CTCT_LIFEBUILD_NEXTSTEP_FORM_ID ? (
+                                        <div
+                                            className="ctct-inline-form"
+                                            data-form-id={import.meta.env.VITE_CTCT_LIFEBUILD_NEXTSTEP_FORM_ID}
+                                        />
+                                    ) : (
+                                        <Button component={Link} to="/contact?area=Cooking%20For%20Life%20Next%20Step" variant="contained" color="primary">
+                                            Contact Us
+                                        </Button>
+                                    )}
+                                </CardContent>
+                            </Card>
                         </Grid>
-                    </Container>
-                </Box>
+                    </Grid>
+                </Container>
+            </Box>
+            {/* Online Program section with Hero and description + form in card */}
+            <Box id="online" sx={{ mt: 6 }}>
+                <Hero
+                    slides={[{ src: '/images/areas/lifebuild.jpg', alt: 'Cooking For Life - Online' }]}
+                    overlayMode="static"
+                    staticOverlay={{ title: 'At Home', subtitle: 'Online via Zoom' }}
+                    height="40vh"
+                    align="left"
+                    darkOverlay
+                    showIndicators={false}
+                />
+                <Container sx={{ mt: 3 }}>
+                    <Grid container spacing={3} alignItems="stretch">
+                        <Grid item xs={12} md={7}>
+                            <Typography variant="h5" gutterBottom>
+                                Online Classes
+                            </Typography>
+                            <Typography variant="body1" paragraph>
+                                Join Cooking For Life from home with live, interactive support. Build kitchen confidence
+                                through budget‑friendly meal planning, basic nutrition, and practical recipes you can make
+                                with common ingredients.
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Great for families looking for flexible scheduling and step‑by‑step guidance.
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} md={5}>
+                            <Card variant="outlined" sx={{ height: '100%' }}>
+                                <CardContent>
+                                    {import.meta.env?.VITE_CTCT_LIFEBUILD_ONLINE_FORM_ID ? (
+                                        <div
+                                            className="ctct-inline-form"
+                                            data-form-id={import.meta.env.VITE_CTCT_LIFEBUILD_ONLINE_FORM_ID}
+                                        />
+                                    ) : (
+                                        <Button component={Link} to="/contact?area=Cooking%20For%20Life%20Online" variant="contained" color="primary">
+                                            Contact Us
+                                        </Button>
+                                    )}
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
 
-                {/* Redwood Foodbank section with Hero and description + form in card */}
-                <Box id="redwood" sx={{ mt: 6 }}>
-                    <Hero
-                        slides={[{ src: '/images/areas/lifebuild.jpg', alt: 'Cooking For Life - Redwood Foodbank' }]}
-                        overlayMode="static"
-                        staticOverlay={{ title: 'In‑Person: Redwood Foodbank (Paused)', subtitle: 'Sign up to be notified when sessions resume.' }}
-                        height="40vh"
-                        align="left"
-                        darkOverlay
-                        showIndicators={false}
-                    />
-                    <Container sx={{ mt: 3 }}>
-                        <Grid container spacing={3} alignItems="stretch">
-                            <Grid item xs={12} md={7}>
-                                <Typography variant="h5" gutterBottom>
-                                    In‑Person: Redwood Foodbank (Paused)
-                                </Typography>
-                                <Typography variant="body1" paragraph>
-                                    Short, practical classes offered alongside food bank hours, focusing on quick, budget‑friendly meals
-                                    and nutrition basics with available ingredients. Sessions are currently paused.
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    Add your name to be notified when the program resumes.
-                                </Typography>
-                            </Grid>
-                            <Grid item xs={12} md={5}>
-                                <Card variant="outlined" sx={{ height: '100%' }}>
-                                    <CardContent>
-                                        {import.meta.env?.VITE_CTCT_LIFEBUILD_REDFOODBANK_FORM_ID ? (
-                                            <div
-                                                className="ctct-inline-form"
-                                                data-form-id={import.meta.env.VITE_CTCT_LIFEBUILD_REDFOODBANK_FORM_ID}
-                                            />
-                                        ) : (
-                                            <Button component={Link} to="/contact?area=Cooking%20For%20Life%20Redwood%20Foodbank" variant="contained" color="primary">
-                                                Contact Us
-                                            </Button>
-                                        )}
-                                    </CardContent>
-                                </Card>
-                            </Grid>
+            {/* Redwood Foodbank section with Hero and description + form in card */}
+            <Box id="redwood" sx={{ mt: 6 }}>
+                <Hero
+                    slides={[{ src: '/images/areas/lifebuild.jpg', alt: 'Cooking For Life - Redwood Foodbank' }]}
+                    overlayMode="static"
+                    staticOverlay={{ title: 'At Redwood Foodbank', subtitle: 'In-person sessions' }}
+                    height="40vh"
+                    align="left"
+                    darkOverlay
+                    showIndicators={false}
+                />
+                <Alert severity="warning" variant="filled" sx={{ textAlign: 'center' }}>
+                        These classes are temporarily paused — sign up for updates below.
+                    </Alert>
+                <Container sx={{ mt: 3 }}>
+                    <Grid container spacing={3} alignItems="stretch">
+                        <Grid item xs={12} md={7}>
+                            <Typography variant="h5" gutterBottom>
+                                In‑Person: Redwood Foodbank
+                            </Typography>
+                            <Typography variant="body1" paragraph>
+                                Short, practical classes offered alongside food bank hours, focusing on quick, budget‑friendly meals
+                                and nutrition basics with available ingredients. Sessions are currently paused.
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                Add your name to be notified when the program resumes.
+                            </Typography>
                         </Grid>
-                    </Container>
-                </Box>
+                        <Grid item xs={12} md={5}>
+                            <Card variant="outlined" sx={{ height: '100%' }}>
+                                <CardContent>
+                                    {import.meta.env?.VITE_CTCT_LIFEBUILD_REDFOODBANK_FORM_ID ? (
+                                        <div
+                                            className="ctct-inline-form"
+                                            data-form-id={import.meta.env.VITE_CTCT_LIFEBUILD_REDFOODBANK_FORM_ID}
+                                        />
+                                    ) : (
+                                        <Button component={Link} to="/contact?area=Cooking%20For%20Life%20Redwood%20Foodbank" variant="contained" color="primary">
+                                            Contact Us
+                                        </Button>
+                                    )}
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
         </>
     )
 }
