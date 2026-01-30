@@ -19,10 +19,10 @@ export default function Footer() {
     const locations = [
         { label: 'Counselling Facility', lines: ['Primary Mailing Address', '141 May Street South', 'Thunder Bay, Ontario', 'P7E 1A9'] },
         { label: 'Programs Facility', lines: ['138 May Street South', 'Thunder Bay, Ontario', 'P7E 1B3'] },
-        { label: 'theCove (Land-based Facility)', lines: ['235 Warnica Lake West Road', 'Gorham, Ontario', 'P7G 0Y3'] },
+        { label: 'Land-based Facility', lines: ['235 Warnica Lake West Road', 'Gorham, Ontario', 'P7G 0Y3'] },
     ]
     return (
-        <Box component="footer" sx={{ mt: 'auto', pt: 3, bgcolor: 'background.paper', borderTop: (theme) => `1px solid ${theme.palette.divider}` }}>
+        <Box component="footer" sx={{ mt: 'auto', pt: 3, bgcolor: 'grey.900', color: 'grey.100', borderTop: (theme) => `1px solid ${theme.palette.grey[800]}` }}>
             {/* Top grid: logo left, sitemap right, centered */}
             <Container sx={{ px: { xs: 2, md: 3 } }}>
                 <Grid container spacing={4} alignItems="flex-start">
@@ -30,34 +30,40 @@ export default function Footer() {
                         <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
                             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                                 <Link component={RouterLink} to="/" aria-label="Home" sx={{ display: 'inline-flex', alignItems: 'flex-start' }}>
-                                    <img src="/NFM-Logo.png" alt="NorthWind Family Ministries wordmark logo" height="80" style={{ display: 'block' }} />
+                                    <img src="/images/logos/NFM-Logo-White.png" alt="NorthWind Family Ministries wordmark logo" height="80" style={{ display: 'block' }} />
                                 </Link>
                                 <Box sx={{ mt: 1, display: 'flex', gap: 1 }}>
-                                    <IconButton component="a" href="https://www.instagram.com/northwindfm/" target="_blank" rel="noopener" aria-label="Instagram" size="small">
+                                    <IconButton component="a" href="https://www.instagram.com/northwindfm/" target="_blank" rel="noopener" aria-label="Instagram" size="small" color="inherit">
                                         <InstagramIcon />
                                     </IconButton>
-                                    <IconButton component="a" href="https://www.facebook.com/northwindfamilyministries/" target="_blank" rel="noopener" aria-label="Facebook" size="small">
+                                    <IconButton component="a" href="https://www.facebook.com/northwindfamilyministries/" target="_blank" rel="noopener" aria-label="Facebook" size="small" color="inherit">
                                         <FacebookIcon />
                                     </IconButton>
-                                    <IconButton component="a" href="https://www.linkedin.com/company/northwind-family-ministries" target="_blank" rel="noopener" aria-label="LinkedIn" size="small">
+                                    <IconButton component="a" href="https://www.linkedin.com/company/northwind-family-ministries" target="_blank" rel="noopener" aria-label="LinkedIn" size="small" color="inherit">
                                         <LinkedInIcon />
                                     </IconButton>
-                                    <IconButton component="a" href="mailto:info@northwindfm.org" aria-label="Email" size="small">
+                                    <IconButton component="a" href="mailto:info@northwindfm.org" aria-label="Email" size="small" color="inherit">
                                         <EmailIcon />
                                     </IconButton>
                                 </Box>
                                 <Box sx={{ mt: 1 }}>
                                     <Typography variant="subtitle2" sx={{ fontWeight: 600, mb: 0.5 }}>Contacts</Typography>
-                                    <Box sx={{ mb: 0.5 }}>
-                                        <Typography variant="body2" sx={{ fontWeight: 500 }}>Counselling Reception</Typography>
+                                    <Box>
+                                        <Typography variant="body2" sx={{ fontWeight: 500 }} color='primary'>NorthWind Reception</Typography>
                                         <Typography variant="body2">
-                                            <Link component="a" href="tel:+1 (807) 622-5790 " underline="hover">(807) 622-5790</Link>
+                                            <Link component="a" href="tel:+15555555556" underline="hover" color="inherit">555-555-5556</Link>
+                                        </Typography>
+                                    </Box>
+                                    <Box sx={{ mb: 0.5 }}>
+                                        <Typography variant="body2" sx={{ fontWeight: 500 }} color='primary'>Counselling Reception</Typography>
+                                        <Typography variant="body2">
+                                            <Link component="a" href="tel:+1 (807) 622-5790 " underline="hover" color="inherit">(807) 622-5790</Link>
                                         </Typography>
                                     </Box>
                                     <Box>
-                                        <Typography variant="body2" sx={{ fontWeight: 500 }}>Next Steps Reception</Typography>
+                                        <Typography variant="body2" sx={{ fontWeight: 500 }} color='primary'>Next Steps Reception</Typography>
                                         <Typography variant="body2">
-                                            <Link component="a" href="tel:+15555555556" underline="hover">555-555-5556</Link>
+                                            <Link component="a" href="tel:+15555555556" underline="hover" color="inherit">555-555-5556</Link>
                                         </Typography>
                                     </Box>
                                     <Box sx={{ mt: 1 }}>
@@ -81,7 +87,7 @@ export default function Footer() {
                                             <Box key={i} sx={{ mb: 0.5 }}>
                                                 <Typography variant="body2" color="primary" sx={{ fontWeight: 500 }}>{loc.label}</Typography>
                                                 {loc.lines.map((line, j) => (
-                                                    <Typography key={j} variant="body2" color="text.secondary">{line}</Typography>
+                                                    <Typography key={j} variant="body2" color="grey.300">{line}</Typography>
                                                 ))}
                                             </Box>
                                         ))}
@@ -115,7 +121,7 @@ export default function Footer() {
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={5}>
-                        <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1 }}>Site Map</Typography>
+                        <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1, color: 'grey.100' }}>Site Map</Typography>
                         <Box sx={{ columnCount: { xs: 1, sm: 2 }, columnGap: 24, maxWidth: 540 }}>
                             {routes
                                 .filter(r => r.path !== '*' && r.path !== '/privacy')
@@ -125,7 +131,7 @@ export default function Footer() {
                                             component={RouterLink}
                                             to={r.path}
                                             underline="hover"
-                                            color="text.secondary"
+                                            color="grey.300"
                                         >
                                             {r.label}
                                         </Link>
@@ -135,12 +141,12 @@ export default function Footer() {
                     </Grid>
                 </Grid>
             </Container>
-            <Divider sx={{ mt: 2 }} />
+            <Divider sx={{ mt: 2, bgcolor: 'grey.800' }} />
             {/* Bottom row: copyright left, privacy right (centered) */}
             <Container sx={{ px: { xs: 2, md: 3 } }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', py: 1 }}>
-                    <Typography variant="caption">© {new Date().getFullYear()} NorthWind Family Ministries. All rights reserved.</Typography>
-                    <Link component={RouterLink} to="/privacy" variant="caption" underline="hover" color="text.secondary">
+                    <Typography variant="caption" color="grey.400">© {new Date().getFullYear()} NorthWind Family Ministries. All rights reserved. | Designed by <Link href="https://www.backslashdesigns.ca" target="_blank" rel="noopener noreferrer" color="inherit" underline="hover">Backslash Designs</Link></Typography>
+                    <Link component={RouterLink} to="/privacy" variant="caption" underline="hover" color="grey.400">
                         Privacy Policy
                     </Link>
                 </Box>

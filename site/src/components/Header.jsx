@@ -53,7 +53,7 @@ export default function Header() {
         <AppBar position="sticky" sx={{ bgcolor: 'common.white', color: 'text.primary', top: showBanner ? bannerHeight : 0 }}>
             <Toolbar>
                 <IconButton size="large" edge="start" color="inherit" aria-label="home" component={Link} to="/" sx={{ mr: 2, p: 0 }}>
-                    <img src="/logo.png" alt="NorthWind Family Ministries logo" height="32" style={{ display: 'block' }} />
+                    <img src="/images/logos/NFM-Icon.png" alt="NorthWind Family Ministries logo" height="32" style={{ display: 'block' }} />
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     NorthWind Family Ministries
