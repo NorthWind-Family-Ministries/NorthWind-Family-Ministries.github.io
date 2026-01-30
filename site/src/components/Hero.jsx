@@ -3,6 +3,7 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
+import LinearProgress from '@mui/material/LinearProgress'
 
 /**
  * Hero component with full-width cycling background images and overlay text.
@@ -34,6 +35,7 @@ export default function Hero({
     showIndicators = true,
     }) {
     const [index, setIndex] = useState(0)
+    const [progress, setProgress] = useState(0)
 
     const safeSlides = useMemo(() => (Array.isArray(slides) && slides.length > 0 ? slides : []), [slides])
 
@@ -44,6 +46,27 @@ export default function Hero({
         }, intervalMs)
         return () => clearInterval(id)
     }, [safeSlides.length, intervalMs])
+
+    // Progress animation synced to slide interval
+    useEffect(() => {
+        if (safeSlides.length <= 1) {
+            setProgress(0)
+            return
+        }
+        let rafId
+        const start = Date.now()
+        const tick = () => {
+            const elapsed = Date.now() - start
+            const value = Math.min((elapsed / intervalMs) * 100, 100)
+            setProgress(value)
+            rafId = requestAnimationFrame(tick)
+        }
+        setProgress(0)
+        rafId = requestAnimationFrame(tick)
+        return () => {
+            if (rafId) cancelAnimationFrame(rafId)
+        }
+    }, [index, safeSlides.length, intervalMs])
 
     const currentSlide = safeSlides[index]
 
@@ -188,6 +211,26 @@ export default function Hero({
                     ))}
                 </Box>
             </Box>
+        )}
+        {/* Linear progress at bottom showing time until next slide */}
+        {safeSlides.length > 1 && (
+            <LinearProgress
+                variant="determinate"
+                value={progress}
+                aria-label="Slide progress"
+                sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: 4,
+                    zIndex: 3,
+                    bgcolor: 'rgba(255,255,255,0.2)',
+                    '& .MuiLinearProgress-bar': {
+                        bgcolor: 'primary.main',
+                    },
+                }}
+            />
         )}
         </Box>
     )
