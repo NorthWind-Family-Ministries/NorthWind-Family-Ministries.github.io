@@ -27,8 +27,8 @@ export default function Footer() {
             <Container sx={{ px: { xs: 2, md: 3 } }}>
                 <Grid container spacing={4} alignItems="flex-start">
                     <Grid item xs={12} md={7}>
-                        <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
-                            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: { xs: 'column', md: 'row' }, width: '100%' }}>
+                            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', mb: { xs: 2, md: 0 }, flex: { xs: '1 1 0', md: '0 0 auto' }, minWidth: 0 }}>
                                 <Link component={RouterLink} to="/" aria-label="Home" sx={{ display: 'inline-flex', alignItems: 'flex-start' }}>
                                     <img src="/images/logos/NFM-Logo-White.png" alt="NorthWind Family Ministries wordmark logo" height="80" style={{ display: 'block' }} />
                                 </Link>
@@ -79,10 +79,10 @@ export default function Footer() {
                                     </Box>
                                 </Box>
                             </Box>
-                            <Box sx={{ ml: 2 }}>
+                            <Box sx={{ ml: { md: 2 }, mt: { xs: 2, md: 0 }, flex: { xs: '1 1 0', md: '0 0 auto' }, minWidth: 0 }}>
                                 <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 0.5 }}>Locations</Typography>
-                                <Box sx={{ display: 'flex', alignItems: 'flex-start', mt: 0.5 }}>
-                                    <Box>
+                                <Box sx={{ display: 'flex', alignItems: 'flex-start', mt: 0.5, flexDirection: { xs: 'column', md: 'row' } }}>
+                                    <Box sx={{ minWidth: 0, width: { xs: '100%', md: 'auto' } }}>
                                         {locations.map((loc, i) => (
                                             <Box key={i} sx={{ mb: 0.5 }}>
                                                 <Typography variant="body2" color="primary" sx={{ fontWeight: 500 }}>{loc.label}</Typography>
@@ -92,13 +92,13 @@ export default function Footer() {
                                             </Box>
                                         ))}
                                     </Box>
-                                    <Box sx={{ flex: '0 0 260px', ml: 2 }}>
+                                    <Box sx={{ flex: { xs: '1 1 auto', md: '0 0 260px' }, ml: { md: 2 }, mt: { xs: 1, md: 0 }, width: { xs: '100%', md: 'auto' }, minWidth: 0, maxWidth: '100%' }}>
                                         <Box sx={{ height: 180, borderRadius: 1, overflow: 'hidden' }}>
                                             <iframe
                                                 title="Counselling & Programs Map"
                                                 width="100%"
                                                 height="100%"
-                                                style={{ border: 0 }}
+                                                style={{ border: 0, display: 'block' }}
                                                 loading="lazy"
                                                 referrerPolicy="no-referrer-when-downgrade"
                                                 src="https://www.google.com/maps?q=141+May+Street+South,+Thunder+Bay,+Ontario+P7E+1A9,138+May+Street+South,+Thunder+Bay,+Ontario+P7E+1B3&output=embed"
@@ -109,7 +109,7 @@ export default function Footer() {
                                                 title="theCove Map"
                                                 width="100%"
                                                 height="100%"
-                                                style={{ border: 0 }}
+                                                style={{ border: 0, display: 'block' }}
                                                 loading="lazy"
                                                 referrerPolicy="no-referrer-when-downgrade"
                                                 src="https://www.google.com/maps?q=235+Warnica+Lake+West+Road,+Gorham,+Ontario+P7G+0Y3&output=embed"
