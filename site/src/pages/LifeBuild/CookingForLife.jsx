@@ -68,18 +68,13 @@ export default function CookingForLife() {
                             </Stack>
                             <Divider sx={{ my: 2 }} />
                             <Typography variant="h5" gutterBottom>
-                                Class Types
+                                How to Participate
                             </Typography>
                             <Typography variant="body2" color="text.secondary" paragraph>
                                 There are three ways to participate in Cooking For Life:
                             </Typography>
                             <Stack spacing={1} sx={{ mb: 2 }}>
-                                <Typography variant="body1">• <MuiLink href="#next-step" underline="hover">Next Steps</MuiLink>: In‑person sessions at our Program Facilities</Typography>
-                                {/* Add Program Facilities Address as a sub-item */}
-                                <Typography variant="body2" color="text.secondary" paragraph>
-                                    123 Main St, Anytown, USA
-                                </Typography>
-
+                                <Typography variant="body1">• <MuiLink href="#next-step" underline="hover">Next Steps</MuiLink>: In‑person sessions at our Program Facilities</Typography>                              
                                 <Typography variant="body1">• <MuiLink href="#online" underline="hover">Online</MuiLink>: Live via Zoom</Typography>
                                 <Typography variant="body1">• <MuiLink href="#redwood" underline="hover">Redwood Foodbank</MuiLink>: Paused, join waitlist</Typography>
                             </Stack>
@@ -89,8 +84,53 @@ export default function CookingForLife() {
                             </Typography>
                             <Stack direction="row" spacing={1} flexWrap="wrap">
                                 <Button component={Link} to="/about#team-jasmin-maki-maunus" variant="outlined" size="small">Jasmin Maki-Maunus</Button>
-                                <Button component={Link} to="/about#team-demerai-meekis" variant="outlined" size="small">Demerai Meekis (former)</Button>
+                                <Button component={Link} to="/about#team-demerai-meekis" variant="outlined" size="small">Demerai Meekis (previous)</Button>
                             </Stack>
+                            <Divider sx={{ my: 3 }} />
+                            <Typography variant="h5" gutterBottom>
+                                Explore Our Recipe Book
+                            </Typography>
+                            <Card variant="outlined">
+                                <CardContent>
+                                    <Grid container spacing={2} alignItems="center">
+                                        <Grid item xs={12} md={6}>
+                                            <Box sx={{ width: '100%', borderRadius: 1, overflow: 'hidden', border: '1px solid', borderColor: 'divider' }}>
+                                                <img
+                                                    src="/images/areas/mealie.png"
+                                                    alt="NorthWind Online Recipe Book (Mealie)"
+                                                    style={{ width: '100%', display: 'block' }}
+                                                />
+                                            </Box>
+                                        </Grid>
+                                        <Grid item xs={12} md={6}>
+                                            <Typography variant="h6" gutterBottom>
+                                                Cook Along With Us
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary" paragraph>
+                                                Browse family‑friendly recipes, meal plans, and collections powered by Mealie. Find step‑by‑step instructions and practical tips for every skill level.
+                                            </Typography>
+                                            <Stack direction="row" spacing={1}>
+                                                <Button
+                                                    href="https://cooking.northwindfm.org"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    variant="contained"
+                                                    color="primary"
+                                                >
+                                                    Open Recipe Book
+                                                </Button>
+                                            </Stack>
+                                            <Typography variant="body2" sx={{ mt: 1 }}>
+                                                Or visit: <MuiLink href="https://cooking.northwindfm.org" target="_blank" rel="noopener noreferrer">cooking.northwindfm.org</MuiLink>
+                                            </Typography>
+                                            <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 2 }}>
+                                                Powered by <MuiLink href="https://mealie.io/" target="_blank" rel="noopener noreferrer" color="inherit">Mealie.io</MuiLink>
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </CardContent>
+                            </Card>
+                            
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={5}>
