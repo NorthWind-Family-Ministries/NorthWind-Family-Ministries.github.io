@@ -8,6 +8,7 @@ import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Box from '@mui/material/Box'
+import MuiLink from '@mui/material/Link'
 import { Link } from 'react-router-dom'
 import Hero from '../../components/Hero'
 
@@ -54,46 +55,50 @@ export default function CookingForLife() {
                             basic nutrition, and family‑friendly recipes. Participants learn simple techniques,
                             meal planning, and how to make healthy food more accessible.
                         </Typography>
+                        <Box sx={{ mt: 2 }}>
+                            <Typography variant="h5" gutterBottom>
+                                What You'll Learn
+                            </Typography>
+                            <Stack spacing={1}>
+                                <Typography variant="body1">• Meal planning on a budget</Typography>
+                                <Typography variant="body1">• Basic nutrition and label reading</Typography>
+                                <Typography variant="body1">• Safe food handling</Typography>
+                                <Typography variant="body1">• Family‑friendly, practical recipes</Typography>
+                            </Stack>
+                            <Divider sx={{ my: 2 }} />
+                            <Typography variant="body2" color="text.secondary" paragraph>
+                                Programs run seasonally with flexible formats for families and groups.
+                            </Typography>
+                            <Button
+                                component={Link}
+                                to="/contact?area=Cooking%20For%20Life"
+                                variant="outlined"
+                                color="text.primary"
+                            >
+                                Ask About Cooking For Life
+                            </Button>
+                        </Box>
                     </Grid>
                     <Grid item xs={12} md={5}>
                         <Stack spacing={2}>
-                            <Card>
+                            {/* Upcoming Classes */}
+                            <Card variant="outlined">
                                 <CardContent>
                                     <Typography variant="h5" gutterBottom>
-                                        What You'll Learn
+                                        Upcoming Classes
                                     </Typography>
-                                    <Stack spacing={1}>
-                                        <Typography variant="body1">• Meal planning on a budget</Typography>
-                                        <Typography variant="body1">• Basic nutrition and label reading</Typography>
-                                        <Typography variant="body1">• Safe food handling</Typography>
-                                        <Typography variant="body1">• Family‑friendly, practical recipes</Typography>
-                                    </Stack>
-                                    <Divider sx={{ my: 2 }} />
                                     <Typography variant="body2" color="text.secondary" paragraph>
-                                        Programs run seasonally with flexible formats for families and groups.
+                                        Class types and times:
                                     </Typography>
-                                    <Button
-                                        component={Link}
-                                        to="/contact?area=Cooking%20For%20Life"
-                                        variant="outlined"
-                                        color="text.primary"
-                                    >
-                                        Ask About Cooking For Life
-                                    </Button>
-                                </CardContent>
-                            </Card>
-
-                            <Card variant="outlined" sx={{ borderColor: 'primary.main' }}>
-                                <CardContent>
-                                    <Typography variant="h5" gutterBottom color="primary">
-                                        Support Cooking For Life
+                                    <Stack spacing={1} sx={{ mb: 2 }}>
+                                        <Typography variant="body1">• <MuiLink href="#next-step" underline="hover">Next Steps</MuiLink>: Wednesdays 3:00–4:30 PM</Typography>
+                                        <Typography variant="body1">• <MuiLink href="#online" underline="hover">Online</MuiLink>: Fridays 10:00–11:30 AM</Typography>
+                                        <Typography variant="body1">• <MuiLink href="#redwood" underline="hover">Redwood</MuiLink>: Paused, times TBA</Typography>
+                                    </Stack>
+                                    {/* Note to click class link for more details */}
+                                    <Typography variant="body2" color="text.secondary">
+                                        Click on a class type to learn more and sign up.
                                     </Typography>
-                                    <Typography variant="body2" paragraph>
-                                        Your gift helps provide hands‑on cooking and nutrition supports to more families.
-                                    </Typography>
-                                    <Button component={Link} to="/donate" variant="contained" color="primary">
-                                        Donate
-                                    </Button>
                                 </CardContent>
                             </Card>
 
@@ -133,6 +138,20 @@ export default function CookingForLife() {
                                     </Button>
                                 </CardContent>
                             </Card>
+
+                            <Card variant="outlined" sx={{ borderColor: 'primary.main' }}>
+                                <CardContent>
+                                    <Typography variant="h5" gutterBottom color="primary">
+                                        Support Cooking For Life
+                                    </Typography>
+                                    <Typography variant="body2" paragraph>
+                                        Your gift helps provide hands‑on cooking and nutrition supports to more families.
+                                    </Typography>
+                                    <Button component={Link} to="/donate" variant="contained" color="primary">
+                                        Donate
+                                    </Button>
+                                </CardContent>
+                            </Card>
                         </Stack>
                     </Grid>
                 </Grid>
@@ -154,7 +173,7 @@ export default function CookingForLife() {
 
             </Container>
                 {/* Next Step section with Hero and description + form in card */}
-                <Box sx={{ mt: 6 }}>
+                <Box id="next-step" sx={{ mt: 6 }}>
                     <Hero
                         slides={[{ src: '/images/areas/lifebuild.jpg', alt: 'Cooking For Life - Next Step' }]}
                         overlayMode="static"
@@ -198,7 +217,7 @@ export default function CookingForLife() {
                     </Container>
                 </Box>
                 {/* Online Program section with Hero and description + form in card */}
-                <Box sx={{ mt: 6 }}>
+                <Box id="online" sx={{ mt: 6 }}>
                     <Hero
                         slides={[{ src: '/images/areas/lifebuild.jpg', alt: 'Cooking For Life - Online' }]}
                         overlayMode="static"
@@ -244,7 +263,7 @@ export default function CookingForLife() {
                 </Box>
 
                 {/* Redwood Foodbank section with Hero and description + form in card */}
-                <Box sx={{ mt: 6 }}>
+                <Box id="redwood" sx={{ mt: 6 }}>
                     <Hero
                         slides={[{ src: '/images/areas/lifebuild.jpg', alt: 'Cooking For Life - Redwood Foodbank' }]}
                         overlayMode="static"
