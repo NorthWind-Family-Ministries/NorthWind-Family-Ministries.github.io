@@ -31,7 +31,7 @@ export default function CookingForLife() {
         <>
             <Hero
                 slides={[{
-                    src: '/images/areas/lifebuild.jpg',
+                    src: '/images/areas/c4l.jpg',
                     alt: 'Cooking For Life',
                     title: 'Cooking For Life',
                     subtitle: 'Hands‑on cooking and nutrition supports for families.',
@@ -213,7 +213,7 @@ export default function CookingForLife() {
             {/* Next Step section with Hero and description + form in card */}
             <Box id="next-step" sx={{ mt: 6 }}>
                 <Hero
-                    slides={[{ src: '/images/areas/lifebuild.jpg', alt: 'Cooking For Life - Next Step' }]}
+                    slides={[{ src: '/images/areas/c4l.jpg', alt: 'Cooking For Life - Next Step' }]}
                     overlayMode="static"
                     staticOverlay={{ title: 'At Next Steps', subtitle: 'In-person sessions' }}
                     height="40vh"
@@ -257,7 +257,7 @@ export default function CookingForLife() {
             {/* Online Program section with Hero and description + form in card */}
             <Box id="online" sx={{ mt: 6 }}>
                 <Hero
-                    slides={[{ src: '/images/areas/lifebuild.jpg', alt: 'Cooking For Life - Online' }]}
+                    slides={[{ src: '/images/areas/c4l.jpg', alt: 'Cooking For Life - Online' }]}
                     overlayMode="static"
                     staticOverlay={{ title: 'At Home', subtitle: 'Online via Zoom' }}
                     height="40vh"
@@ -303,7 +303,7 @@ export default function CookingForLife() {
             {/* Redwood Foodbank section with Hero and description + form in card */}
             <Box id="redwood" sx={{ mt: 6 }}>
                 <Hero
-                    slides={[{ src: '/images/areas/lifebuild.jpg', alt: 'Cooking For Life - Redwood Foodbank' }]}
+                    slides={[{ src: '/images/areas/c4l.jpg', alt: 'Cooking For Life - Redwood Foodbank' }]}
                     overlayMode="static"
                     staticOverlay={{ title: 'At Redwood Foodbank', subtitle: 'In-person sessions' }}
                     height="40vh"
