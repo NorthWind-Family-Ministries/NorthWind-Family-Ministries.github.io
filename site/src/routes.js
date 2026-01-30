@@ -11,6 +11,7 @@ import LifeBuild from './pages/LifeBuild'
 import CookingForLife from './pages/LifeBuild/CookingForLife'
 import LandBase from './pages/LandBase'
 import SpiritualGrowth from './pages/SpiritualGrowth'
+import TeamMemberRedirect from './pages/About/TeamMemberRedirect'
 
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
@@ -95,6 +96,12 @@ const routes = [
             { path: '/about#team', label: 'Our Team' },
             { path: '/about#history', label: 'Our History' },
         ],
+    },
+    {
+        path: '/about/team/:slug',
+        label: 'Team Member',
+        component: TeamMemberRedirect,
+        showInNav: false,
     },
     {
         path: '/donate',
