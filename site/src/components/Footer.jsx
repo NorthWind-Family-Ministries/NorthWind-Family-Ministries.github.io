@@ -26,7 +26,7 @@ export default function Footer() {
             {/* Top grid: logo left, sitemap right, centered */}
             <Container sx={{ px: { xs: 2, md: 3 } }}>
                 <Grid container spacing={4} alignItems="flex-start">
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={7}>
                         <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
                             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                                 <Link component={RouterLink} to="/" aria-label="Home" sx={{ display: 'inline-flex', alignItems: 'flex-start' }}>
@@ -75,20 +75,48 @@ export default function Footer() {
                             </Box>
                             <Box sx={{ ml: 2 }}>
                                 <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 0.5 }}>Locations</Typography>
-                                {locations.map((loc, i) => (
-                                    <Box key={i} sx={{ mb: 0.5 }}>
-                                        <Typography variant="body2" sx={{ fontWeight: 500 }}>{loc.label}</Typography>
-                                        {loc.lines.map((line, j) => (
-                                            <Typography key={j} variant="body2" color="text.secondary">{line}</Typography>
+                                <Box sx={{ display: 'flex', alignItems: 'flex-start', mt: 0.5 }}>
+                                    <Box>
+                                        {locations.map((loc, i) => (
+                                            <Box key={i} sx={{ mb: 0.5 }}>
+                                                <Typography variant="body2" color="primary" sx={{ fontWeight: 500 }}>{loc.label}</Typography>
+                                                {loc.lines.map((line, j) => (
+                                                    <Typography key={j} variant="body2" color="text.secondary">{line}</Typography>
+                                                ))}
+                                            </Box>
                                         ))}
                                     </Box>
-                                ))}
+                                    <Box sx={{ flex: '0 0 260px', ml: 2 }}>
+                                        <Box sx={{ height: 180, borderRadius: 1, overflow: 'hidden' }}>
+                                            <iframe
+                                                title="Counselling & Programs Map"
+                                                width="100%"
+                                                height="100%"
+                                                style={{ border: 0 }}
+                                                loading="lazy"
+                                                referrerPolicy="no-referrer-when-downgrade"
+                                                src="https://www.google.com/maps?q=141+May+Street+South,+Thunder+Bay,+Ontario+P7E+1A9,138+May+Street+South,+Thunder+Bay,+Ontario+P7E+1B3&output=embed"
+                                            />
+                                        </Box>
+                                        <Box sx={{ height: 180, borderRadius: 1, overflow: 'hidden', mt: 1 }}>
+                                            <iframe
+                                                title="theCove Map"
+                                                width="100%"
+                                                height="100%"
+                                                style={{ border: 0 }}
+                                                loading="lazy"
+                                                referrerPolicy="no-referrer-when-downgrade"
+                                                src="https://www.google.com/maps?q=235+Warnica+Lake+West+Road,+Gorham,+Ontario+P7G+0Y3&output=embed"
+                                            />
+                                        </Box>
+                                    </Box>
+                                </Box>
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={5}>
                         <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1 }}>Site Map</Typography>
-                        <Box sx={{ columnCount: { xs: 1, sm: 2 }, columnGap: 24, maxWidth: 720 }}>
+                        <Box sx={{ columnCount: { xs: 1, sm: 2 }, columnGap: 24, maxWidth: 540 }}>
                             {routes
                                 .filter(r => r.path !== '*' && r.path !== '/privacy')
                                 .map(r => (
