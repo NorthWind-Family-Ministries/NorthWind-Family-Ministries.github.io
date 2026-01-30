@@ -11,7 +11,7 @@ export default function Home() {
       <Hero
         slides={[
           {
-            src: 'public/images/areas/landbased.jpg',
+            src: '/images/areas/landbased.jpg',
             alt: 'Community gathering',
             title: 'Welcome to NorthWind Family Ministries',
             subtitle: 'Strengthening families, fostering hope, and serving our community.',
@@ -19,7 +19,7 @@ export default function Home() {
             ctaHref: '/donate',
           },
           {
-            src: 'public/images/areas/counselling.jpg',
+            src: '/images/areas/counselling.jpg',
             alt: 'Counseling and care',
             title: 'Counseling & Care',
             subtitle: 'Compassionate support for growth, healing, and resilience.',
