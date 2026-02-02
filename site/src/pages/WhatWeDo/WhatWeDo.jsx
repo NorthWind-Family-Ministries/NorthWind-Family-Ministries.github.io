@@ -98,48 +98,7 @@ export default function WhatWeDo() {
                 </Grid>
             </Container>
 
-            {/* Get involved (full-width highlight) */}
-            <Box
-                sx={{
-                    width: '100vw',
-                    position: 'relative',
-                    left: '50%',
-                    right: '50%',
-                    marginLeft: '-50vw',
-                    marginRight: '-50vw',
-                    bgcolor: 'primary.main',
-                    color: 'primary.contrastText',
-                    py: 6,
-                    mb: 0,
-                }}
-            >
-                <Container>
-                    <Typography variant="h4" align="center" gutterBottom>
-                        Get Involved
-                    </Typography>
-                    <Typography variant="body1" align="center" color="inherit" sx={{ mb: 2 }}>
-                        Join us in making a difference. Whether through volunteering, donating, or spreading the word, your support helps us continue our mission.
-                    </Typography>
-                    <Box textAlign="center">
-                        <a href="/donate" style={{ textDecoration: 'none' }}>
-                            <Box
-                                component="button"
-                                sx={{
-                                    backgroundColor: 'white',
-                                    color: 'primary.main',
-                                    padding: '10px 20px',
-                                    border: 'none',
-                                    borderRadius: '4px',
-                                    cursor: 'pointer',
-                                    fontSize: '16px',
-                                }}
-                            >
-                                Donate Now
-                            </Box>
-                        </a>
-                    </Box>
-                </Container>
-            </Box>
+            {/* Get involved moved to Footer */}
         </>
     )
 }

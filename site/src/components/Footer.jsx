@@ -22,9 +22,52 @@ export default function Footer() {
         { label: 'Land-based Facility', lines: ['235 Warnica Lake West Road', 'Gorham, Ontario', 'P7G 0Y3'] },
     ]
     return (
-        <Box component="footer" sx={{ mt: 'auto', pt: 3, bgcolor: 'grey.900', color: 'grey.100', borderTop: (theme) => `1px solid ${theme.palette.grey[800]}` }}>
-            {/* Top grid: logo left, sitemap right, centered */}
-            <Container sx={{ px: { xs: 2, md: 3 } }}>
+        <>
+            {/* Get involved (full-width highlight) placed before grey footer */}
+            <Box
+                sx={{
+                    width: '100vw',
+                    position: 'relative',
+                    left: '50%',
+                    right: '50%',
+                    marginLeft: '-50vw',
+                    marginRight: '-50vw',
+                    bgcolor: 'primary.main',
+                    color: 'primary.contrastText',
+                    py: 6,
+                    mb: 0,
+                }}
+            >
+                <Container>
+                    <Typography variant="h4" align="center" gutterBottom>
+                        Get Involved
+                    </Typography>
+                    <Typography variant="body1" align="center" color="inherit" sx={{ mb: 2 }}>
+                        Join us in making a difference. Whether through volunteering, donating, or spreading the word, your support helps us continue our mission.
+                    </Typography>
+                    <Box textAlign="center">
+                        <a href="/donate" style={{ textDecoration: 'none' }}>
+                            <Box
+                                component="button"
+                                sx={{
+                                    backgroundColor: 'white',
+                                    color: 'primary.main',
+                                    padding: '10px 20px',
+                                    border: 'none',
+                                    borderRadius: '4px',
+                                    cursor: 'pointer',
+                                    fontSize: '16px',
+                                }}
+                            >
+                                Donate Now
+                            </Box>
+                        </a>
+                    </Box>
+                </Container>
+            </Box>
+            <Box component="footer" sx={{ mt: 'auto', pt: 3, bgcolor: 'grey.900', color: 'grey.100', borderTop: (theme) => `1px solid ${theme.palette.grey[800]}` }}>
+                {/* Top grid: logo left, sitemap right, centered */}
+                <Container sx={{ px: { xs: 2, md: 3 } }}>
                 <Grid container spacing={4} alignItems="flex-start">
                     <Grid item xs={12} md={7}>
                         <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: { xs: 'column', md: 'row' }, width: '100%' }}>
@@ -214,17 +257,18 @@ export default function Footer() {
                         </Box>
                     </Grid>
                 </Grid>
-            </Container>
-            <Divider sx={{ mt: 2, bgcolor: 'grey.800' }} />
-            {/* Bottom row: copyright left, privacy right (centered) */}
-            <Container sx={{ px: { xs: 2, md: 3 } }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', py: 1 }}>
-                    <Typography variant="caption" color="grey.400">© {new Date().getFullYear()} NorthWind Family Ministries. All rights reserved. | Designed by <Link href="https://www.backslashdesigns.ca" target="_blank" rel="noopener noreferrer" color="inherit" underline="hover">Backslash Designs</Link></Typography>
-                    <Link component={RouterLink} to="/privacy" variant="caption" underline="hover" color="grey.400">
-                        Privacy Policy
-                    </Link>
-                </Box>
-            </Container>
-        </Box>
+                </Container>
+                <Divider sx={{ mt: 2, bgcolor: 'grey.800' }} />
+                {/* Bottom row: copyright left, privacy right (centered) */}
+                <Container sx={{ px: { xs: 2, md: 3 } }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', py: 1 }}>
+                        <Typography variant="caption" color="grey.400">© {new Date().getFullYear()} NorthWind Family Ministries. All rights reserved. | Designed by <Link href="https://www.backslashdesigns.ca" target="_blank" rel="noopener noreferrer" color="inherit" underline="hover">Backslash Designs</Link></Typography>
+                        <Link component={RouterLink} to="/privacy" variant="caption" underline="hover" color="grey.400">
+                            Privacy Policy
+                        </Link>
+                    </Box>
+                </Container>
+            </Box>
+        </>
     )
 }
