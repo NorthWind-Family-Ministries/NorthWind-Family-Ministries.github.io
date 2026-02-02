@@ -81,18 +81,30 @@ export default function Header() {
                         return (
                             <Box key={r.path || r.label} sx={{ display: 'inline-flex', alignItems: 'center' }}>
                                 {isGroupOnly ? (
-                                    <Button
-                                        color={r.highlight ? 'primary' : 'inherit'}
-                                        variant={r.highlight ? 'contained' : 'text'}
-                                        sx={r.highlight ? { ml: 1 } : {}}
-                                        aria-haspopup="true"
-                                        aria-controls="nav-menu"
-                                        aria-expanded={isOpen ? true : undefined}
-                                        endIcon={isOpen ? <ArrowDropUpIcon fontSize="small" /> : <ArrowDropDownIcon fontSize="small" />}
-                                        onClick={(e) => { setMenuAnchorEl(e.currentTarget); setMenuRoute(r); }}
-                                    >
-                                        {r.label}
-                                    </Button>
+                                    <>
+                                        <Button
+                                            component={Link}
+                                            to={r.path}
+                                            color={r.highlight ? 'primary' : 'inherit'}
+                                            variant={r.highlight ? 'contained' : 'text'}
+                                            sx={r.highlight ? { ml: 1 } : {}}
+                                        >
+                                            {r.label}
+                                        </Button>
+                                        <IconButton
+                                                color="inherit"
+                                                aria-label={`Open ${r.label} menu`}
+                                                aria-haspopup="true"
+                                                aria-controls="nav-menu"
+                                                aria-expanded={isOpen ? true : undefined}
+                                                onClick={(e) => { setMenuAnchorEl(e.currentTarget); setMenuRoute(r); }}
+                                                size="small"
+                                                sx={{ ml: 0.5 }}
+                                            >
+                                                {isOpen ? <ArrowDropUpIcon fontSize="small" /> : <ArrowDropDownIcon fontSize="small" />}
+                                            </IconButton>
+
+                                    </>
                                 ) : (
                                     <Button
                                         component={Link}
@@ -111,6 +123,8 @@ export default function Header() {
                         anchorEl={menuAnchorEl}
                         open={Boolean(menuAnchorEl)}
                         onClose={() => { setMenuAnchorEl(null); setMenuRoute(null); }}
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                     >
                         {menuRoute?.children?.map(child => {
                             const childPath = String(child.path || '')

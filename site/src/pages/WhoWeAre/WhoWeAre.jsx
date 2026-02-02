@@ -9,7 +9,7 @@ import Values from './Values'
 import Team from './Team'
 import History from './History'
 
-export default function About() {
+export default function WhoWeAre() {
     const location = useLocation()
     const slides = [
         {

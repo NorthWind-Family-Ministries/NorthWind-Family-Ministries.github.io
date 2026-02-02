@@ -24,7 +24,7 @@ export default function Home() {
             title: 'Counseling & Care',
             subtitle: 'Compassionate support for growth, healing, and resilience.',
             ctaLabel: 'Learn More',
-            ctaHref: '/about',
+            ctaHref: '/who-we-are',
           },
           {
             src: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45?auto=format&fit=crop&w=2096&q=80',
@@ -55,7 +55,7 @@ export default function Home() {
           title: 'Who We Are',
           subtitle: 'Meet the team behind our mission.',
           ctaLabel: 'Meet the Team',
-          ctaHref: '/about#team',
+          ctaHref: '/who-we-are#team',
         }}
         height="50vh"
         align="center"

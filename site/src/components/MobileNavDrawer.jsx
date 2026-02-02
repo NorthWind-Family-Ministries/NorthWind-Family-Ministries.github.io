@@ -59,18 +59,33 @@ export default function MobileNavDrawer({ open, onClose, routes }) {
 
                 if (hasChildren && isGroupOnly) {
                     const open = !!openGroups[key]
+                    const selectedParent = location.pathname === r.path
                     return (
                         <Box key={key}>
                             <ListItem disablePadding>
-                                <ListItemButton onClick={() => toggleGroup(key)} sx={{ borderRadius: 1.5 }}>
-                                    {Icon && (
-                                        <ListItemIcon>
-                                            <Icon fontSize="small" />
-                                        </ListItemIcon>
-                                    )}
-                                    <ListItemText primary={r.label} />
-                                    {open ? <ExpandLess /> : <ExpandMore />}
-                                </ListItemButton>
+                                <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+                                    <ListItemButton
+                                        component={Link}
+                                        to={r.path}
+                                        onClick={handleNavigate}
+                                        selected={selectedParent}
+                                        sx={{ borderRadius: 1.5, flexGrow: 1 }}
+                                    >
+                                        {Icon && (
+                                            <ListItemIcon>
+                                                <Icon fontSize="small" />
+                                            </ListItemIcon>
+                                        )}
+                                        <ListItemText primary={r.label} />
+                                    </ListItemButton>
+                                    <ListItemButton
+                                        onClick={() => toggleGroup(key)}
+                                        sx={{ borderRadius: 1.5, width: 48, flexGrow: 0, flexShrink: 0, justifyContent: 'center' }}
+                                        aria-label={`Open ${r.label} menu`}
+                                    >
+                                        {open ? <ExpandLess /> : <ExpandMore />}
+                                    </ListItemButton>
+                                </Box>
                             </ListItem>
                             <Collapse in={open} timeout="auto" unmountOnExit>
                                 <List component="div" disablePadding>

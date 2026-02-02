@@ -1,6 +1,6 @@
 // Central route configuration with optional nested subpages
 import Home from './pages/Home/Home'
-import About from './pages/About/About'
+import WhoWeAre from './pages/WhoWeAre/WhoWeAre'
 import Donate from './pages/Donate'
 import NotFound from './pages/NotFound'
 import Privacy from './pages/Privacy'
@@ -11,7 +11,7 @@ import LifeBuild from './pages/LifeBuild'
 import CookingForLife from './pages/Programs/CookingForLife'
 import LandBase from './pages/LandBase'
 import SpiritualGrowth from './pages/SpiritualGrowth'
-import TeamMemberRedirect from './pages/About/TeamMemberRedirect'
+import TeamMemberRedirect from './pages/WhoWeAre/TeamMemberRedirect'
 import WhatWeDo from './pages/WhatWeDo'
 import WhoWeServe from './pages/WhoWeServe'
 import NorthernCare from './pages/WhoWeServe/NorthernCare'
@@ -38,17 +38,14 @@ const routes = [
         icon: HomeOutlined,
     },
     {
+        path: '/what-we-do',
         label: 'What We Do',
+        component: WhatWeDo,
         showInNav: true,
         icon: CategoryOutlined,
         groupOnly: true,
         children: [
-            {
-                path: '/what-we-do',
-                label: 'Overview',
-                component: WhatWeDo,
-                showInNav: false,
-            },
+            // Top-level page at /what-we-do
             {
                 path: '/counselling',
                 label: 'Counselling',
@@ -98,17 +95,14 @@ const routes = [
         ],
     },
     {
+        path: '/who-we-serve',
         label: 'Who We Serve',
+        component: WhoWeServe,
         showInNav: true,
         icon: GroupOutlined,
         groupOnly: true,
         children: [
-            {
-                path: '/who-we-serve',
-                label: 'Overview',
-                component: WhoWeServe,
-                showInNav: false,
-            },
+            // Top-level page at /who-we-serve
             {
                 path: '/northern-care',
                 label: 'Northern Care',
@@ -152,20 +146,20 @@ const routes = [
         ],
     },
     {
-        path: '/about',
+        path: '/who-we-are',
         label: 'Who We Are',
-        component: About,
+        component: WhoWeAre,
         showInNav: true,
         icon: InfoOutlined,
         groupOnly: true,
         children: [
-            { path: '/about#mission', label: 'Our Mission' },
-            { path: '/about#team', label: 'Our Team' },
-            { path: '/about#history', label: 'Our History' },
+            { path: '/who-we-are#mission', label: 'Our Mission' },
+            { path: '/who-we-are#team', label: 'Our Team' },
+            { path: '/who-we-are#history', label: 'Our History' },
         ],
     },
     {
-        path: '/about/team/:slug',
+        path: '/who-we-are/team/:slug',
         label: 'Team Member',
         component: TeamMemberRedirect,
         showInNav: false,

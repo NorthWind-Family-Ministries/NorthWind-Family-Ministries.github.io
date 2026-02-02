@@ -83,8 +83,8 @@ export default function CookingForLife() {
                                 Meet the Team
                             </Typography>
                             <Stack direction="row" spacing={1} flexWrap="wrap">
-                                <Button component={Link} to="/about#team-jasmin-maki-maunus" variant="outlined" size="small">Jasmin Maki-Maunus</Button>
-                                <Button component={Link} to="/about#team-demerai-meekis" variant="outlined" size="small">Demerai Meekis (previous)</Button>
+                                <Button component={Link} to="/who-we-are#team-jasmin-maki-maunus" variant="outlined" size="small">Jasmin Maki-Maunus</Button>
+                                <Button component={Link} to="/who-we-are#team-demerai-meekis" variant="outlined" size="small">Demerai Meekis (previous)</Button>
                             </Stack>
                             <Divider sx={{ my: 3 }} />
                             <Typography variant="h5" gutterBottom>

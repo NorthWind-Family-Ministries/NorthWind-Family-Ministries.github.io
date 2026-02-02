@@ -133,7 +133,7 @@ export default function Team() {
                                                 </Typography>
                                             </CardContent>
                                             <CardActions sx={{ pb: 2 }}>
-                                                <Button component={Link} to={`/about/team/${slug}`} variant="outlined" size="small">VIEW BIO</Button>
+                                                <Button component={Link} to={`/who-we-are/team/${slug}`} variant="outlined" size="small">VIEW BIO</Button>
                                             </CardActions>
                                         </Card>
                                     </Grid>

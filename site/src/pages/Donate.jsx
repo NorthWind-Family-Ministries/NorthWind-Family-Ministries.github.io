@@ -74,7 +74,7 @@ export default function Donate() {
             <Button variant="contained" color="primary" disabled>
             Give Online (Coming Soon)
             </Button>
-            <Button variant="outlined" color="primary" href="/about">
+            <Button variant="outlined" color="primary" href="/who-we-are">
             Ways to Give & About
             </Button>
         </Stack>
@@ -246,7 +246,7 @@ export default function Donate() {
             <Button variant="contained" color="primary" disabled>
                 Give Online (USA) — Coming Soon
             </Button>
-            <Button variant="outlined" color="primary" href="/about">
+            <Button variant="outlined" color="primary" href="/who-we-are">
                 Learn More
             </Button>
             </Stack>
