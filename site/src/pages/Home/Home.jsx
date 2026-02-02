@@ -1,9 +1,12 @@
 import React from 'react'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
+import Link from '@mui/material/Link'
+import { Link as RouterLink } from 'react-router-dom'
 import Button from '@mui/material/Button'
 import Hero from '../../components/Hero'
 import WhatWeDoSection from './WhatWeDoSection'
+import Box from '@mui/material/Box'
 
 export default function Home() {
   return (
@@ -41,7 +44,58 @@ export default function Home() {
         align="center"
         darkOverlay
       />
-      <WhatWeDoSection />
+      {/* Who we serve */}
+      <Typography variant="h4" component="h2" align="center" sx={{ mt: 6 }}>
+        Who We Serve
+      </Typography>
+      <Container sx={{ textAlign: 'center', mb: 4 }}>
+        <Typography variant="body1" paragraph>
+          We are dedicated to serving diverse communities through our four specialized care sectors. Each sector is designed to address unique needs and provide comprehensive support to those we serve.
+        </Typography>
+        <Button variant="contained" color="primary" href="/who-we-serve">
+          Explore Our Care Sectors
+        </Button>
+      </Container>
+
+      {/* What we do */}
+      <Hero 
+        slides={[
+          {
+            src: '/images/areas/spiritual-growth.jpg',
+            alt: 'What We Do',
+          },
+        ]}
+        overlayMode="static"
+        staticOverlay={{
+          title: 'What We Do',
+          subtitle: 'Explore our four pillars and programs.',
+          ctaLabel: 'Learn More',
+          ctaHref: '/what-we-do',
+        }}
+        height="50vh"
+        align="center"
+        darkOverlay
+        showIndicators
+      />
+
+      {/* What we do description */}
+      <Container sx={{ textAlign: 'center', my: 4 }}>
+        <Typography variant="body1" paragraph>
+          At NorthWind Family Ministries, we are committed to holistic care through our four pillars: Counseling & Care, LifeBuild, Community Outreach, and Spiritual Growth. Each pillar is designed to empower individuals and families on their journey towards healing and wholeness.
+        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 1, mb: 2 }}>
+          <Link component={RouterLink} to="/counselling" underline="hover" color="primary">Counselling</Link>
+          <Link component={RouterLink} to="/lifebuild" underline="hover" color="primary">LifeBuild</Link>
+          <Link component={RouterLink} to="/landbase" underline="hover" color="primary">Land Based</Link>
+          <Link component={RouterLink} to="/spiritualgrowth" underline="hover" color="primary">Spiritual Growth</Link>
+        </Box>
+        <Button variant="contained" color="primary" href="/what-we-do">
+          Discover Our Programs
+        </Button>
+      </Container>
+
+
+
       
       <Hero
         slides={[
