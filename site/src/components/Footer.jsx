@@ -123,20 +123,94 @@ export default function Footer() {
                     <Grid item xs={12} md={5}>
                         <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1, color: 'grey.100' }}>Site Map</Typography>
                         <Box sx={{ columnCount: { xs: 1, sm: 2 }, columnGap: 24, maxWidth: 540 }}>
-                            {routes
-                                .filter(r => r.path !== '*' && r.path !== '/privacy')
-                                .map(r => (
-                                    <Box key={r.path} sx={{ breakInside: 'avoid', mb: 0.75 }}>
-                                        <Link
-                                            component={RouterLink}
-                                            to={r.path}
-                                            underline="hover"
-                                            color="grey.300"
-                                        >
+                            {(() => {
+                                // Flatten top-level + children + sub-children into a single list with depth
+                                const list = []
+                                const exclude = (p) => !p || p === '*' || p === '/privacy' || String(p).includes(':')
+                                const isProgramLabel = (label) => label === 'Family Strengthening Program' || label === 'Cooking For Life'
+
+                                routes.forEach((route) => {
+                                    if (!exclude(route.path) && route.label) {
+                                        list.push({ path: route.path, label: route.label, depth: 0 })
+                                    }
+                                    (route.children || []).forEach((child) => {
+                                        const childPath = String(child.path || '')
+                                        const fullChildPath = childPath.startsWith('/')
+                                            ? childPath
+                                            : `${route.path}/${childPath}`
+                                        if (!exclude(fullChildPath) && child.label) {
+                                            list.push({ path: fullChildPath, label: child.label, depth: 1 })
+                                        }
+                                        (child.children || []).forEach((sub) => {
+                                            const subPath = String(sub.path || '')
+                                            const fullSubPath = subPath.startsWith('/')
+                                                ? subPath
+                                                : `${fullChildPath}/${subPath}`
+                                            // Exclude program pages from general sitemap; they'll appear under the Programs section
+                                            if (!exclude(fullSubPath) && sub.label && !isProgramLabel(sub.label)) {
+                                                list.push({ path: fullSubPath, label: sub.label, depth: 2 })
+                                            }
+                                        })
+                                    })
+                                })
+
+                                // Deduplicate by path while preserving order
+                                const seen = new Set()
+                                const deduped = list.filter((item) => {
+                                    if (seen.has(item.path)) return false
+                                    seen.add(item.path)
+                                    return true
+                                })
+
+                                return deduped.map((r) => (
+                                    <Box
+                                        key={r.path}
+                                        sx={{
+                                            breakInside: 'avoid',
+                                            mb: 0.75,
+                                            pl: r.depth === 0 ? 0 : r.depth === 1 ? 1.5 : 3,
+                                        }}
+                                    >
+                                        <Link component={RouterLink} to={r.path} underline="hover" color="grey.300">
                                             {r.label}
                                         </Link>
                                     </Box>
-                                ))}
+                                ))
+                            })()}
+                        </Box>
+                        <Typography variant="subtitle2" sx={{ fontWeight: 600, mt: 2, color: 'grey.100' }}>Programs</Typography>
+                        <Box>
+                            {(() => {
+                                // Collect canonical program links (prefer under What We Do)
+                                const isProgramLabel = (label) => label === 'Family Strengthening Program' || label === 'Cooking For Life'
+                                const programsByLabel = new Map()
+
+                                routes.forEach((route) => {
+                                    (route.children || []).forEach((child) => {
+                                        const childPath = String(child.path || '')
+                                        const fullChildPath = childPath.startsWith('/') ? childPath : `${route.path}/${childPath}`
+                                        ;(child.children || []).forEach((sub) => {
+                                            if (!sub.label || !isProgramLabel(sub.label)) return
+                                            const subPath = String(sub.path || '')
+                                            const fullSubPath = subPath.startsWith('/') ? subPath : `${fullChildPath}/${subPath}`
+
+                                            const existing = programsByLabel.get(sub.label)
+                                            // Prefer the path under the "What We Do" top-level group for canonical linking
+                                            if (!existing || route.label === 'What We Do') {
+                                                programsByLabel.set(sub.label, { path: fullSubPath, label: sub.label })
+                                            }
+                                        })
+                                    })
+                                })
+
+                                return Array.from(programsByLabel.values()).map((p) => (
+                                    <Box key={p.path} sx={{ mb: 0.75 }}>
+                                        <Link component={RouterLink} to={p.path} underline="hover" color="grey.300">
+                                            {p.label}
+                                        </Link>
+                                    </Box>
+                                ))
+                            })()}
                         </Box>
                     </Grid>
                 </Grid>
