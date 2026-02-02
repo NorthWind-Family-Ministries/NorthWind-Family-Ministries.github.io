@@ -12,6 +12,7 @@ import MuiLink from '@mui/material/Link'
 import Alert from '@mui/material/Alert'
 import { Link } from 'react-router-dom'
 import Hero from '../../components/Hero'
+import ConstantContactFormCard from '../../components/ConstantContactFormCard'
 
 export default function CookingForLife() {
     useEffect(() => {
@@ -236,20 +237,10 @@ export default function CookingForLife() {
                             </Typography>
                         </Grid>
                         <Grid item xs={12} md={5}>
-                            <Card variant="outlined" sx={{ height: '100%' }}>
-                                <CardContent>
-                                    {import.meta.env?.VITE_CTCT_LIFEBUILD_NEXTSTEP_FORM_ID ? (
-                                        <div
-                                            className="ctct-inline-form"
-                                            data-form-id={import.meta.env.VITE_CTCT_LIFEBUILD_NEXTSTEP_FORM_ID}
-                                        />
-                                    ) : (
-                                        <Button component={Link} to="/contact?area=Cooking%20For%20Life%20Next%20Step" variant="contained" color="primary">
-                                            Contact Us
-                                        </Button>
-                                    )}
-                                </CardContent>
-                            </Card>
+                            <ConstantContactFormCard
+                                formId={import.meta.env?.VITE_CTCT_LIFEBUILD_NEXTSTEP_FORM_ID}
+                                fallbackHref="/contact?area=Cooking%20For%20Life%20Next%20Step"
+                            />
                         </Grid>
                     </Grid>
                 </Container>
@@ -281,20 +272,10 @@ export default function CookingForLife() {
                             </Typography>
                         </Grid>
                         <Grid item xs={12} md={5}>
-                            <Card variant="outlined" sx={{ height: '100%' }}>
-                                <CardContent>
-                                    {import.meta.env?.VITE_CTCT_LIFEBUILD_ONLINE_FORM_ID ? (
-                                        <div
-                                            className="ctct-inline-form"
-                                            data-form-id={import.meta.env.VITE_CTCT_LIFEBUILD_ONLINE_FORM_ID}
-                                        />
-                                    ) : (
-                                        <Button component={Link} to="/contact?area=Cooking%20For%20Life%20Online" variant="contained" color="primary">
-                                            Contact Us
-                                        </Button>
-                                    )}
-                                </CardContent>
-                            </Card>
+                            <ConstantContactFormCard
+                                formId={import.meta.env?.VITE_CTCT_LIFEBUILD_ONLINE_FORM_ID}
+                                fallbackHref="/contact?area=Cooking%20For%20Life%20Online"
+                            />
                         </Grid>
                     </Grid>
                 </Container>
@@ -329,20 +310,10 @@ export default function CookingForLife() {
                             </Typography>
                         </Grid>
                         <Grid item xs={12} md={5}>
-                            <Card variant="outlined" sx={{ height: '100%' }}>
-                                <CardContent>
-                                    {import.meta.env?.VITE_CTCT_LIFEBUILD_REDFOODBANK_FORM_ID ? (
-                                        <div
-                                            className="ctct-inline-form"
-                                            data-form-id={import.meta.env.VITE_CTCT_LIFEBUILD_REDFOODBANK_FORM_ID}
-                                        />
-                                    ) : (
-                                        <Button component={Link} to="/contact?area=Cooking%20For%20Life%20Redwood%20Foodbank" variant="contained" color="primary">
-                                            Contact Us
-                                        </Button>
-                                    )}
-                                </CardContent>
-                            </Card>
+                            <ConstantContactFormCard
+                                formId={import.meta.env?.VITE_CTCT_LIFEBUILD_REDFOODBANK_FORM_ID}
+                                fallbackHref="/contact?area=Cooking%20For%20Life%20Redwood%20Foodbank"
+                            />
                         </Grid>
                     </Grid>
                 </Container>

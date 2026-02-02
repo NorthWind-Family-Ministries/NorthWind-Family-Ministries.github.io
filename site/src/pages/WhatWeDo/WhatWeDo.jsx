@@ -5,6 +5,7 @@ import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
+import ConstantContactFormCard from '../../components/ConstantContactFormCard'
 import Hero from '../../components/Hero'
 import WhatWeDoSection from '../Home/WhatWeDoSection'
 
@@ -92,38 +93,7 @@ export default function WhatWeDo() {
                         </Card>
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <Card variant="outlined" sx={{ height: '100%' }}>
-                            <CardContent>
-                                {import.meta.env?.VITE_CTCT_NEWSLETTER_FORM_ID ? (
-                                    <div
-                                        className="ctct-inline-form"
-                                        data-form-id={import.meta.env.VITE_CTCT_NEWSLETTER_FORM_ID}
-                                    />
-                                ) : (
-                                    <Box sx={{ textAlign: 'center' }}>
-                                        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                                            Newsletter signup is temporarily unavailable. Contact us to subscribe.
-                                        </Typography>
-                                        <a href="/contact" style={{ textDecoration: 'none' }}>
-                                            <Box
-                                                component="button"
-                                                sx={{
-                                                    backgroundColor: 'primary.main',
-                                                    color: 'white',
-                                                    padding: '10px 20px',
-                                                    border: 'none',
-                                                    borderRadius: '4px',
-                                                    cursor: 'pointer',
-                                                    fontSize: '16px',
-                                                }}
-                                            >
-                                                Contact Us
-                                            </Box>
-                                        </a>
-                                    </Box>
-                                )}
-                            </CardContent>
-                        </Card>
+                        <ConstantContactFormCard formId={import.meta.env?.VITE_CTCT_NEWSLETTER_FORM_ID} />
                     </Grid>
                 </Grid>
             </Container>
