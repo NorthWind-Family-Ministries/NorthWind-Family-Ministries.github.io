@@ -38,6 +38,57 @@ const routes = [
         icon: HomeOutlined,
     },
     {
+        path: '/who-we-serve',
+        label: 'Who We Serve',
+        component: WhoWeServe,
+        showInNav: true,
+        icon: GroupOutlined,
+        groupOnly: true,
+        children: [
+            // Top-level page at /who-we-serve
+            {
+                path: '/northern-care',
+                label: 'Northern Care',
+                component: NorthernCare,
+                showInNav: false,
+            },
+            {
+                path: '/street-care',
+                label: 'Street Care',
+                component: StreetCare,
+                showInNav: false,
+            },
+            {
+                path: '/community-care',
+                label: 'Community Care',
+                component: CommunityCare,
+                showInNav: false,
+                children: [
+                    {
+                        path: 'cooking-for-life',
+                        label: 'Cooking For Life',
+                        component: CookingForLife,
+                        showInNav: false,
+                    },
+                ],
+            },
+            {
+                path: '/personal-care',
+                label: 'Personal Care',
+                component: PersonalCare,
+                showInNav: false,
+                children: [
+                    {
+                        path: 'fsp',
+                        label: 'Family Strengthening Program',
+                        component: FSP,
+                        showInNav: false,
+                    },
+                ],
+            },
+        ],
+    },
+    {
         path: '/what-we-do',
         label: 'What We Do',
         component: WhatWeDo,
@@ -91,57 +142,6 @@ const routes = [
                 component: SpiritualGrowth,
                 showInNav: false,
                 icon: SelfImprovement,
-            },
-        ],
-    },
-    {
-        path: '/who-we-serve',
-        label: 'Who We Serve',
-        component: WhoWeServe,
-        showInNav: true,
-        icon: GroupOutlined,
-        groupOnly: true,
-        children: [
-            // Top-level page at /who-we-serve
-            {
-                path: '/northern-care',
-                label: 'Northern Care',
-                component: NorthernCare,
-                showInNav: false,
-            },
-            {
-                path: '/street-care',
-                label: 'Street Care',
-                component: StreetCare,
-                showInNav: false,
-            },
-            {
-                path: '/community-care',
-                label: 'Community Care',
-                component: CommunityCare,
-                showInNav: false,
-                children: [
-                    {
-                        path: 'cooking-for-life',
-                        label: 'Cooking For Life',
-                        component: CookingForLife,
-                        showInNav: false,
-                    },
-                ],
-            },
-            {
-                path: '/personal-care',
-                label: 'Personal Care',
-                component: PersonalCare,
-                showInNav: false,
-                children: [
-                    {
-                        path: 'fsp',
-                        label: 'Family Strengthening Program',
-                        component: FSP,
-                        showInNav: false,
-                    },
-                ],
             },
         ],
     },

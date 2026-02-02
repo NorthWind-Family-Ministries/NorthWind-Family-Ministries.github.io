@@ -43,7 +43,7 @@ export default function MobileNavDrawer({ open, onClose, routes }) {
                         }}
                         aria-label="Go to home"
                     >
-                        <img src="/logo.png" alt="NorthWind Family Ministries logo" height="28" style={{ display: 'block' }} />
+                        <img src="/images/logos/NFM-Icon.png" alt="NorthWind Family Ministries logo" height="28" style={{ display: 'block' }} />
                         <Typography variant="h6" sx={{ fontWeight: 600 }}>
                             NorthWind
                         </Typography>
