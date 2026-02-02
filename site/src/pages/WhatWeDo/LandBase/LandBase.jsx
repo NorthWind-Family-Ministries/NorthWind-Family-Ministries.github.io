@@ -9,8 +9,8 @@ import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Chip from '@mui/material/Chip'
 import { Link } from 'react-router-dom'
-import Hero from '../../components/Hero'
-import FeatureCards from '../../components/FeatureCards'
+import Hero from '../../../components/Hero'
+import FeatureCards from '../../../components/FeatureCards'
 
 export default function LandBase() {
     return (
