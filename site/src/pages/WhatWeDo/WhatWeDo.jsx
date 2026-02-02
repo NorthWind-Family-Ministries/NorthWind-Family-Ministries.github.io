@@ -6,17 +6,18 @@ import Hero from '../../components/Hero'
 import WhatWeDoSection from '../Home/WhatWeDoSection'
 
 export default function WhatWeDo() {
+    const slides = [{
+        src: '/images/areas/spiritual-growth.jpg',
+        alt: 'What We Do',
+        title: 'What We Do',
+        subtitle: 'Explore our four pillars and programs.',
+        ctaLabel: 'Contact Us',
+        ctaHref: '/contact',
+    }]
     return (
         <>
             <Hero
-                slides={[{
-                    src: '/images/areas/spiritual-growth.jpg',
-                    alt: 'What We Do',
-                    title: 'What We Do',
-                    subtitle: 'Explore our four pillars and programs.',
-                    ctaLabel: 'Contact Us',
-                    ctaHref: '/contact',
-                }]}
+                slides={slides}
                 overlayMode="per-slide"
                 height="60vh"
                 align="center"

@@ -1,44 +1,50 @@
 import React from 'react'
 import Container from '@mui/material/Container'
-import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography'
-import Paper from '@mui/material/Paper'
-import Link from '@mui/material/Link'
+import Hero from '../../components/Hero.jsx'
+import FeatureCards from '../../components/FeatureCards.jsx'
 
 export default function WhoWeServe() {
     const sectors = [
-        { label: 'Northern Care', href: '/northern-care' },
-        { label: 'Street Care', href: '/street-care' },
-        { label: 'Community Care', href: '/community-care' },
-        { label: 'Personal Care', href: '/personal-care' },
+        { label: 'Northern Care', href: '/northern-care', subtitle: 'Outreach and support for northern communities.' },
+        { label: 'Street Care', href: '/street-care', subtitle: 'Compassionate street outreach providing basic needs.' },
+        { label: 'Community Care', href: '/community-care', subtitle: 'Programs serving the local community and families.' },
+        { label: 'Personal Care', href: '/personal-care', subtitle: 'Individual counselling and life skills support.' },
+    ]
+
+    const slides = [
+        {
+            src: '/images/areas/counselling.jpg',
+            alt: 'Who We Serve',
+        },
     ]
 
     return (
-        <Container sx={{ py: 6 }}>
-            <Box sx={{ textAlign: 'center', mb: 4 }}>
-                <Typography variant="h3" component="h1" gutterBottom>
-                    Who We Serve
-                </Typography>
-                <Typography variant="h6" color="text.secondary">
-                    Explore our four care sectors and how we support each.
-                </Typography>
-            </Box>
+        <>
+            <Hero
+                overlayMode="static"
+                staticOverlay={{
+                    title: 'Who We Serve',
+                    subtitle: 'Explore our four care sectors and how we support each.',
+                }}
+                slides={slides}
+                height="40vh"
+                align="center"
+                darkOverlay={true}
+                showIndicators={false}
+            />
 
-            <Grid container spacing={3}>
-                {sectors.map((s) => (
-                    <Grid item xs={12} sm={6} md={3} key={s.label}>
-                        <Paper elevation={2} sx={{ p: 3, height: '100%', textAlign: 'center' }}>
-                            <Typography variant="h6" sx={{ mb: 1 }}>
-                                {s.label}
-                            </Typography>
-                            <Link href={s.href} underline="hover">
-                                Learn more
-                            </Link>
-                        </Paper>
-                    </Grid>
-                ))}
-            </Grid>
-        </Container>
+            <Container sx={{ py: 6 }}>
+                <FeatureCards
+                    items={sectors.map((s) => ({
+                        title: s.label,
+                        subtitle: s.subtitle,
+                        button: { label: 'Learn more', href: s.href },
+                    }))}
+                    spacing={3}
+                    itemMd={3}
+                    cardVariant="outlined"
+                />
+            </Container>
+        </>
     )
 }
