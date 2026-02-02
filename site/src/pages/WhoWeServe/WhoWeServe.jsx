@@ -8,7 +8,7 @@ export default function WhoWeServe() {
         { label: 'Northern Care', href: '/northern-care', subtitle: 'Outreach and support for northern communities.' },
         { label: 'Street Care', href: '/street-care', subtitle: 'Compassionate street outreach providing basic needs.' },
         { label: 'Community Care', href: '/community-care', subtitle: 'Programs serving the local community and families.' },
-        { label: 'Personal Care', href: '/personal-care', subtitle: 'Individual counselling and life skills support.' },
+        { label: 'Prison Care', href: '/prison-care', subtitle: 'Individual counselling and life skills support.' },
     ]
 
     const slides = [

@@ -17,7 +17,7 @@ import WhoWeServe from './pages/WhoWeServe'
 import NorthernCare from './pages/WhoWeServe/NorthernCare'
 import StreetCare from './pages/WhoWeServe/StreetCare'
 import CommunityCare from './pages/WhoWeServe/CommunityCare'
-import PersonalCare from './pages/WhoWeServe/PersonalCare'
+import PrisonCare from './pages/WhoWeServe/PrisonCare'
 
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
@@ -73,9 +73,9 @@ const routes = [
                 ],
             },
             {
-                path: '/personal-care',
-                label: 'Personal Care',
-                component: PersonalCare,
+                path: '/prison-care',
+                label: 'Prison Care',
+                component: PrisonCare,
                 showInNav: false,
                 children: [
                     {
