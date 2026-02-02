@@ -12,6 +12,7 @@ import CookingForLife from './pages/Programs/CookingForLife'
 import LandBase from './pages/LandBase'
 import SpiritualGrowth from './pages/SpiritualGrowth'
 import TeamMemberRedirect from './pages/About/TeamMemberRedirect'
+import WhatWeDo from './pages/WhatWeDo'
 import WhoWeServe from './pages/WhoWeServe'
 import NorthernCare from './pages/WhoWeServe/NorthernCare'
 import StreetCare from './pages/WhoWeServe/StreetCare'
@@ -42,6 +43,12 @@ const routes = [
         icon: CategoryOutlined,
         groupOnly: true,
         children: [
+            {
+                path: '/what-we-do',
+                label: 'Overview',
+                component: WhatWeDo,
+                showInNav: false,
+            },
             {
                 path: '/counselling',
                 label: 'Counselling',

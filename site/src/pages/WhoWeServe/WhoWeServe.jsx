@@ -8,10 +8,10 @@ import Link from '@mui/material/Link'
 
 export default function WhoWeServe() {
     const sectors = [
-        { label: 'Northern Care', href: '/who-we-serve/northern-care' },
-        { label: 'Street Care', href: '/who-we-serve/street-care' },
-        { label: 'Community Care', href: '/who-we-serve/community-care' },
-        { label: 'Personal Care', href: '/who-we-serve/personal-care' },
+        { label: 'Northern Care', href: '/northern-care' },
+        { label: 'Street Care', href: '/street-care' },
+        { label: 'Community Care', href: '/community-care' },
+        { label: 'Personal Care', href: '/personal-care' },
     ]
 
     return (

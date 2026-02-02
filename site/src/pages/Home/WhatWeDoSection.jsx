@@ -13,6 +13,8 @@ const areas = [
         description:
         'Compassionate, trauma‑informed support for individuals, couples, and families. We walk alongside people through seasons of change, grief, and growth.',
         image: '../../images/areas/counselling.jpg',
+        buttonLabel: 'Explore Counselling',
+        to: '/counselling',
     },
     {
         key: 'lifebuild',
@@ -20,6 +22,8 @@ const areas = [
         description:
         'Practical skills and supports for everyday life: parenting, financial literacy, employment readiness, and healthy relationships to help families thrive.',
         image: '../../images/areas/lifebuild.jpg',
+        buttonLabel: 'Explore LifeBuild',
+        to: '/lifebuild',
     },
     {
         key: 'land-based',
@@ -27,6 +31,8 @@ const areas = [
         description:
         'Healing and learning connected to land, culture, and community. Activities that honor tradition, build belonging, and strengthen identity.',
         image: '../../images/areas/landbased.jpg',
+        buttonLabel: 'Explore Land Based',
+        to: '/landbase',
     },
     {
         key: 'spiritual-growth',
@@ -34,6 +40,8 @@ const areas = [
         description:
         'Faith‑formed care, mentorship, and spaces to explore hope and meaning. Opportunities for prayer, learning, and spiritual companionship.',
         image: '/images/areas/spiritual-growth.jpg',
+        buttonLabel: 'Explore Spiritual Growth',
+        to: '/spiritualgrowth',
     },
 ]
 
@@ -55,22 +63,12 @@ export default function WhatWeDoSection() {
                 title: area.title,
                 subtitle: area.description,
                 button: {
-                    label:
-                        area.key === 'counselling'
-                            ? 'Explore Counselling'
-                            : area.key === 'land-based'
-                            ? 'Explore Land Based'
-                            : 'View Programs',
+                    label: area.buttonLabel,
                     variant: 'contained',
                     color: 'primary',
                     props: {
                         component: Link,
-                        to:
-                            area.key === 'counselling'
-                                ? '/counselling'
-                                : area.key === 'land-based'
-                                ? '/landbase'
-                                : `/contact?area=${encodeURIComponent(area.title)}`,
+                        to: area.to,
                     },
                 },
             }))}
