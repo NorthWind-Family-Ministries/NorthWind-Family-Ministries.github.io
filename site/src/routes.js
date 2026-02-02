@@ -12,6 +12,11 @@ import CookingForLife from './pages/LifeBuild/CookingForLife'
 import LandBase from './pages/LandBase'
 import SpiritualGrowth from './pages/SpiritualGrowth'
 import TeamMemberRedirect from './pages/About/TeamMemberRedirect'
+import WhoWeServe from './pages/WhoWeServe'
+import NorthernCare from './pages/WhoWeServe/NorthernCare'
+import StreetCare from './pages/WhoWeServe/StreetCare'
+import CommunityCare from './pages/WhoWeServe/CommunityCare'
+import PersonalCare from './pages/WhoWeServe/PersonalCare'
 
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
@@ -21,6 +26,7 @@ import CategoryOutlined from '@mui/icons-material/CategoryOutlined'
 import BuildCircleOutlined from '@mui/icons-material/BuildCircleOutlined'
 import ParkOutlined from '@mui/icons-material/ParkOutlined'
 import SelfImprovement from '@mui/icons-material/SelfImprovement'
+import GroupOutlined from '@mui/icons-material/GroupOutlined'
 
 const routes = [
     {
@@ -81,6 +87,60 @@ const routes = [
                 component: SpiritualGrowth,
                 showInNav: false,
                 icon: SelfImprovement,
+            },
+        ],
+    },
+    {
+        label: 'Who We Serve',
+        showInNav: true,
+        icon: GroupOutlined,
+        groupOnly: true,
+        children: [
+            {
+                path: '/who-we-serve',
+                label: 'Overview',
+                component: WhoWeServe,
+                showInNav: false,
+            },
+            {
+                path: '/northern-care',
+                label: 'Northern Care',
+                component: NorthernCare,
+                showInNav: false,
+            },
+            {
+                path: '/street-care',
+                label: 'Street Care',
+                component: StreetCare,
+                showInNav: false,
+            },
+            {
+                path: '/community-care',
+                label: 'Community Care',
+                component: CommunityCare,
+                showInNav: false,
+                children: [
+                    {
+                        path: 'cooking-for-life',
+                        label: 'Cooking For Life',
+                        component: CookingForLife,
+                        showInNav: false,
+                    },
+                ],
+            },
+            {
+                path: '/personal-care',
+                label: 'Personal Care',
+                component: PersonalCare,
+                showInNav: false,
+                children: [
+                    {
+                        path: 'fsp',
+                        label: 'Family Strengthening Program',
+                        component: FSP,
+                        showInNav: false,
+                    },
+                ],
             },
         ],
     },
