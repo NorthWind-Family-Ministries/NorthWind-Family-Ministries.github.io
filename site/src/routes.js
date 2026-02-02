@@ -14,10 +14,6 @@ import SpiritualGrowth from './pages/WhatWeDo/SpiritualGrowth'
 import TeamMemberRedirect from './pages/WhoWeAre/TeamMemberRedirect'
 import WhatWeDo from './pages/WhatWeDo'
 import WhoWeServe from './pages/WhoWeServe'
-import NorthernCare from './pages/WhoWeServe/NorthernCare'
-import StreetCare from './pages/WhoWeServe/StreetCare'
-import CommunityCare from './pages/WhoWeServe/CommunityCare'
-import PrisonCare from './pages/WhoWeServe/PrisonCare'
 
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
@@ -45,47 +41,10 @@ const routes = [
         icon: GroupOutlined,
         groupOnly: true,
         children: [
-            // Top-level page at /who-we-serve
-            {
-                path: '/northern-care',
-                label: 'Northern Care',
-                component: NorthernCare,
-                showInNav: false,
-            },
-            {
-                path: '/street-care',
-                label: 'Street Care',
-                component: StreetCare,
-                showInNav: false,
-            },
-            {
-                path: '/community-care',
-                label: 'Community Care',
-                component: CommunityCare,
-                showInNav: false,
-                children: [
-                    {
-                        path: 'cooking-for-life',
-                        label: 'Cooking For Life',
-                        component: CookingForLife,
-                        showInNav: false,
-                    },
-                ],
-            },
-            {
-                path: '/prison-care',
-                label: 'Prison Care',
-                component: PrisonCare,
-                showInNav: false,
-                children: [
-                    {
-                        path: 'fsp',
-                        label: 'Family Strengthening Program',
-                        component: FSP,
-                        showInNav: false,
-                    },
-                ],
-            },
+            { path: '/who-we-serve#northern-care', label: 'Northern Care', showInNav: false },
+            { path: '/who-we-serve#street-care', label: 'Street Care', showInNav: false },
+            { path: '/who-we-serve#community-care', label: 'Community Care', showInNav: false },
+            { path: '/who-we-serve#prison-care', label: 'Prison Care', showInNav: false },
         ],
     },
     {
