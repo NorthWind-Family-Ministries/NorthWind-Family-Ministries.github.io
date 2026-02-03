@@ -144,7 +144,10 @@ export default function Header() {
                             }
                             return (
                                 <Accordion key={to} elevation={0} disableGutters sx={{ boxShadow: 'none', '&::before': { display: 'none' } }}>
-                                    <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 2 }}>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        sx={{ px: 2, '&:hover': { bgcolor: 'action.hover' } }}
+                                    >
                                         <Typography
                                             component={Link}
                                             to={to}
