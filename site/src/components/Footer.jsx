@@ -170,7 +170,6 @@ export default function Footer() {
                                 // Flatten top-level + children + sub-children into a single list with depth
                                 const list = []
                                 const exclude = (p) => !p || p === '*' || p === '/privacy' || String(p).includes(':')
-                                const isProgramLabel = (label) => label === 'Family Strengthening Program' || label === 'Cooking For Life'
 
                                 routes.forEach((route) => {
                                     if (!exclude(route.path) && route.label) {
@@ -189,8 +188,7 @@ export default function Footer() {
                                             const fullSubPath = subPath.startsWith('/')
                                                 ? subPath
                                                 : `${fullChildPath}/${subPath}`
-                                            // Exclude program pages from general sitemap; they'll appear under the Programs section
-                                            if (!exclude(fullSubPath) && sub.label && !isProgramLabel(sub.label)) {
+                                            if (!exclude(fullSubPath) && sub.label) {
                                                 list.push({ path: fullSubPath, label: sub.label, depth: 2 })
                                             }
                                         })
@@ -221,40 +219,7 @@ export default function Footer() {
                                 ))
                             })()}
                         </Box>
-                        <Typography variant="subtitle2" sx={{ fontWeight: 600, mt: 2, color: 'grey.100' }}>Programs</Typography>
-                        <Box>
-                            {(() => {
-                                // Collect canonical program links (prefer under What We Do)
-                                const isProgramLabel = (label) => label === 'Family Strengthening Program' || label === 'Cooking For Life'
-                                const programsByLabel = new Map()
-
-                                routes.forEach((route) => {
-                                    (route.children || []).forEach((child) => {
-                                        const childPath = String(child.path || '')
-                                        const fullChildPath = childPath.startsWith('/') ? childPath : `${route.path}/${childPath}`
-                                        ;(child.children || []).forEach((sub) => {
-                                            if (!sub.label || !isProgramLabel(sub.label)) return
-                                            const subPath = String(sub.path || '')
-                                            const fullSubPath = subPath.startsWith('/') ? subPath : `${fullChildPath}/${subPath}`
-
-                                            const existing = programsByLabel.get(sub.label)
-                                            // Prefer the path under the "What We Do" top-level group for canonical linking
-                                            if (!existing || route.label === 'What We Do') {
-                                                programsByLabel.set(sub.label, { path: fullSubPath, label: sub.label })
-                                            }
-                                        })
-                                    })
-                                })
-
-                                return Array.from(programsByLabel.values()).map((p) => (
-                                    <Box key={p.path} sx={{ mb: 0.75 }}>
-                                        <Link component={RouterLink} to={p.path} underline="hover" color="grey.300">
-                                            {p.label}
-                                        </Link>
-                                    </Box>
-                                ))
-                            })()}
-                        </Box>
+                        
                     </Grid>
                 </Grid>
                 </Container>

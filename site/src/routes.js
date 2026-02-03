@@ -14,6 +14,7 @@ import SpiritualGrowth from './pages/WhatWeDo/SpiritualGrowth'
 import TeamMemberRedirect from './pages/WhoWeAre/TeamMemberRedirect'
 import WhatWeDo from './pages/WhatWeDo'
 import WhoWeServe from './pages/WhoWeServe'
+import Programs from './pages/Programs/Programs'
 
 import HomeOutlined from '@mui/icons-material/HomeOutlined'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
@@ -62,15 +63,7 @@ const routes = [
                 component: Counselling,
                 showInNav: false,
                 icon: PsychologyOutlined,
-                children: [
-                    {
-                        path: 'fsp',
-                        label: 'Family Strengthening Program',
-                        component: FSP,
-                        showInNav: false,
-                        icon: PsychologyOutlined,
-                    },
-                ],
+                children: [],
             },
             {
                 path: '/lifebuild',
@@ -78,15 +71,7 @@ const routes = [
                 component: LifeBuild,
                 showInNav: false,
                 icon: BuildCircleOutlined,
-                children: [
-                    {
-                        path: 'cooking-for-life',
-                        label: 'Cooking For Life',
-                        component: CookingForLife,
-                        showInNav: false,
-                        icon: BuildCircleOutlined,
-                    },
-                ],
+                children: [],
             },
             {
                 path: '/landbase',
@@ -101,6 +86,28 @@ const routes = [
                 component: SpiritualGrowth,
                 showInNav: false,
                 icon: SelfImprovement,
+            },
+        ],
+    },
+    {
+        path: '/programs',
+        label: 'Programs',
+        component: Programs,
+        showInNav: false,
+        children: [
+            {
+                path: 'fsp',
+                label: 'Family Strengthening Program',
+                component: FSP,
+                showInNav: false,
+                icon: PsychologyOutlined,
+            },
+            {
+                path: 'cooking-for-life',
+                label: 'Cooking For Life',
+                component: CookingForLife,
+                showInNav: false,
+                icon: BuildCircleOutlined,
             },
         ],
     },
