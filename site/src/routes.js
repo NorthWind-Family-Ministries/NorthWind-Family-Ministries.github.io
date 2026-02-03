@@ -44,7 +44,27 @@ const routes = [
         children: [
             { path: '/who-we-serve#northern-care', label: 'Northern Care', showInNav: false },
             { path: '/who-we-serve#street-care', label: 'Street Care', showInNav: false },
-            { path: '/who-we-serve#community-care', label: 'Community Care', showInNav: false },
+            {
+                path: '/who-we-serve#community-care',
+                label: 'Community Care',
+                showInNav: false,
+                children: [
+                    {
+                        path: '/programs/fsp',
+                        label: 'Family Strengthening Program',
+                        component: FSP,
+                        showInNav: false,
+                        icon: PsychologyOutlined,
+                    },
+                    {
+                        path: '/programs/cooking-for-life',
+                        label: 'Cooking For Life',
+                        component: CookingForLife,
+                        showInNav: false,
+                        icon: BuildCircleOutlined,
+                    },
+                ],
+            },
             { path: '/who-we-serve#prison-care', label: 'Prison Care', showInNav: false },
         ],
     },
@@ -63,7 +83,15 @@ const routes = [
                 component: Counselling,
                 showInNav: false,
                 icon: PsychologyOutlined,
-                children: [],
+                children: [
+                    {
+                        path: '/programs/fsp',
+                        label: 'Family Strengthening Program',
+                        component: FSP,
+                        showInNav: false,
+                        icon: PsychologyOutlined,
+                    },
+                ],
             },
             {
                 path: '/lifebuild',
@@ -71,7 +99,15 @@ const routes = [
                 component: LifeBuild,
                 showInNav: false,
                 icon: BuildCircleOutlined,
-                children: [],
+                children: [
+                    {
+                        path: '/programs/cooking-for-life',
+                        label: 'Cooking For Life',
+                        component: CookingForLife,
+                        showInNav: false,
+                        icon: BuildCircleOutlined,
+                    },
+                ],
             },
             {
                 path: '/landbase',
