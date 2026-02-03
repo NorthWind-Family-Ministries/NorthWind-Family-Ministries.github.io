@@ -90,6 +90,11 @@ export default function Footer() {
                                     </IconButton>
                                 </Box>
                                 <Box sx={{ mt: 1 }}>
+                                        <Link component="a" href="https://www.cccc.org/" target="_blank" rel="noopener" aria-label="Canadian Centre for Christian Charities">
+                                            <img src="/images/logos/CCCC-Logo.png" alt="Member of CCCC" height="50" style={{ display: 'block' }} />
+                                        </Link>
+                                </Box>
+                                <Box sx={{ mt: 1 }}>
                                     <Typography variant="subtitle2" sx={{ fontWeight: 600, mb: 0.5 }}>Contacts</Typography>
                                     <Box>
                                         <Typography variant="body2" sx={{ fontWeight: 500 }} color='primary'>NorthWind Reception</Typography>
@@ -136,7 +141,7 @@ export default function Footer() {
                                         ))}
                                     </Box>
                                     <Box sx={{ flex: { xs: '1 1 auto', md: '0 0 260px' }, ml: { md: 2 }, mt: { xs: 1, md: 0 }, width: { xs: '100%', md: 'auto' }, minWidth: 0, maxWidth: '100%' }}>
-                                        <Box sx={{ height: 180, borderRadius: 1, overflow: 'hidden' }}>
+                                        <Box sx={{ height: 140, borderRadius: 1, overflow: 'hidden' }}>
                                             <iframe
                                                 title="Counselling & Programs Map"
                                                 width="100%"
@@ -147,7 +152,7 @@ export default function Footer() {
                                                 src="https://www.google.com/maps?q=141+May+Street+South,+Thunder+Bay,+Ontario+P7E+1A9,138+May+Street+South,+Thunder+Bay,+Ontario+P7E+1B3&output=embed"
                                             />
                                         </Box>
-                                        <Box sx={{ height: 180, borderRadius: 1, overflow: 'hidden', mt: 1 }}>
+                                        <Box sx={{ height: 140, borderRadius: 1, overflow: 'hidden', mt: 1 }}>
                                             <iframe
                                                 title="theCove Map"
                                                 width="100%"
