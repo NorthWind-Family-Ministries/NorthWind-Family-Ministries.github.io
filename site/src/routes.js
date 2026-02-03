@@ -109,6 +109,13 @@ const routes = [
                         showInNav: false,
                         icon: PsychologyOutlined,
                     },
+                    {
+                        path: '/programs/compass',
+                        label: 'Compass',
+                        component: Compass,
+                        showInNav: false,
+                        icon: PsychologyOutlined,
+                    }
                 ],
             },
             {
