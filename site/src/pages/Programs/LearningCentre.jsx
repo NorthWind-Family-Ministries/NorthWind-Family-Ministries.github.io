@@ -50,7 +50,7 @@ export default function LearningCentre() {
                         <Stack spacing={2}>
                             <Card>
                                 <CardContent>
-                                    <Typography variant="h5" gutterBottom>
+                                    <Typography variant="h5" gutterBottom sx={{ borderColor: 'text.secondary' }}>
                                         Get Connected
                                     </Typography>
                                     <Typography variant="body2" color="text.secondary" paragraph>
@@ -59,8 +59,8 @@ export default function LearningCentre() {
                                     <Button
                                         component={Link}
                                         to="/contact?area=Learning%20Centre"
-                                        variant="contained"
-                                        color="primary"
+                                        variant="outlined"
+                                        color="textSecondary"
                                     >
                                         Ask About Learning Centre
                                     </Button>
