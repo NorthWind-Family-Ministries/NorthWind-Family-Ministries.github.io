@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
-import Hero from '../../../components/Hero'
+import Hero from '../../components/Hero'
 
 export default function BibleStudy() {
     return (
