@@ -44,6 +44,13 @@ export default function Programs() {
             to: '/programs/camps',
         },
         {
+            title: 'Retreats',
+            subtitle: 'Rest and reflection at Eagle’s Cove.',
+            pillar: 'Land Based',
+            sector: 'Community Care',
+            to: '/programs/retreats',
+        },
+        {
             title: 'Compass',
             subtitle: 'Northern Response Team supporting communities after crisis.',
             pillar: 'Counselling',

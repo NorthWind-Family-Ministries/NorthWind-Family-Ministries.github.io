@@ -12,6 +12,7 @@ import CookingForLife from './pages/Programs/CookingForLife'
 import Compass from './pages/Programs/Compass'
 import LearningCentre from './pages/Programs/LearningCentre'
 import Camps from './pages/Programs/Camps'
+import Retreat from './pages/Programs/Retreat'
 import LandBase from './pages/WhatWeDo/LandBase'
 import SpiritualGrowth from './pages/WhatWeDo/SpiritualGrowth'
 import BibleStudy from './pages/Programs/BibleStudy'
@@ -46,12 +47,28 @@ const routes = [
         icon: GroupOutlined,
         groupOnly: true,
         children: [
-            { path: '/who-we-serve#northern-care', label: 'Northern Care', showInNav: false },
-            { path: '/who-we-serve#street-care', label: 'Street Care', showInNav: false },
+            { 
+                path: '/who-we-serve#northern-care', 
+                label: 'Northern Care', 
+                showInNav: false,
+                hideFromSitemap: true,
+                children: [
+                    {
+                        path: '/programs/compass',
+                        label: 'Compass',
+                        component: Compass,
+                        showInNav: false,
+                        icon: PsychologyOutlined,
+                        hideFromSitemap: true,
+                    },
+                ],
+            },
+            { path: '/who-we-serve#street-care', label: 'Street Care', showInNav: false, hideFromSitemap: true },
             {
                 path: '/who-we-serve#community-care',
                 label: 'Community Care',
                 showInNav: false,
+                hideFromSitemap: true,
                 children: [
                     {
                         path: '/programs/fsp',
@@ -83,7 +100,7 @@ const routes = [
                     }
                 ],
             },
-            { path: '/who-we-serve#prison-care', label: 'Prison Care', showInNav: false },
+            { path: '/who-we-serve#prison-care', label: 'Prison Care', showInNav: false, hideFromSitemap: true },
         ],
     },
     {
@@ -115,6 +132,7 @@ const routes = [
                         component: Compass,
                         showInNav: false,
                         icon: PsychologyOutlined,
+                        hideFromSitemap: true,
                     }
                 ],
             },
@@ -147,6 +165,15 @@ const routes = [
                         component: Camps,
                         showInNav: false,
                         icon: ParkOutlined,
+                        hideFromSitemap: true,
+                    },
+                    {  
+                        path: '/programs/retreats',
+                        label: 'Retreats',
+                        component: Retreat,
+                        showInNav: false,
+                        icon: ParkOutlined,
+                        hideFromSitemap: true,
                     },
                 ],
             },
@@ -163,6 +190,7 @@ const routes = [
                         component: LearningCentre,
                         showInNav: false,
                         icon: SelfImprovement,
+                        hideFromSitemap: true,
                     },
                     {
                         path: 'bible-study',
@@ -170,9 +198,23 @@ const routes = [
                         component: BibleStudy,
                         showInNav: false,
                         icon: SelfImprovement,
+                        hideFromSitemap: true,
                     }
                 ]
             },
+        ],
+    },
+    {
+        path: '/who-we-are',
+        label: 'Who We Are',
+        component: WhoWeAre,
+        showInNav: true,
+        icon: InfoOutlined,
+        groupOnly: true,
+        children: [
+            { path: '/who-we-are#mission', label: 'Our Mission' },
+            { path: '/who-we-are#team', label: 'Our Team' },
+            { path: '/who-we-are#history', label: 'Our History' },
         ],
     },
     {
@@ -209,6 +251,13 @@ const routes = [
                 showInNav: false,
                 icon: ParkOutlined,
             },
+            {
+                path: 'retreats',
+                label: 'Retreats',
+                component: Retreat,
+                showInNav: false,
+                icon: ParkOutlined,
+            },
                 {
                     path: 'compass',
                     label: 'Compass',
@@ -219,23 +268,11 @@ const routes = [
         ],
     },
     {
-        path: '/who-we-are',
-        label: 'Who We Are',
-        component: WhoWeAre,
-        showInNav: true,
-        icon: InfoOutlined,
-        groupOnly: true,
-        children: [
-            { path: '/who-we-are#mission', label: 'Our Mission' },
-            { path: '/who-we-are#team', label: 'Our Team' },
-            { path: '/who-we-are#history', label: 'Our History' },
-        ],
-    },
-    {
         path: '/who-we-are/team/:slug',
         label: 'Team Member',
         component: TeamMemberRedirect,
         showInNav: false,
+        hideFromSitemap: true,
     },
     {
         path: '/donate',
@@ -262,6 +299,7 @@ const routes = [
         label: 'Not Found',
         component: NotFound,
         showInNav: false,
+        hideFromSitemap: true,
     },
 ]
 

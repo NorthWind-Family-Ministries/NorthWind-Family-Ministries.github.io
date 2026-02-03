@@ -169,10 +169,10 @@ export default function Footer() {
                             {(() => {
                                 // Flatten top-level + children + sub-children into a single list with depth
                                 const list = []
-                                const exclude = (p) => !p || p === '*' || p === '/privacy' || String(p).includes(':')
+                                const exclude = (p, obj) => (obj && obj.hideFromSitemap) || !p || p === '*' || p === '/privacy' || String(p).includes(':')
 
                                 routes.forEach((route) => {
-                                    if (!exclude(route.path) && route.label) {
+                                    if (!exclude(route.path, route) && route.label) {
                                         list.push({ path: route.path, label: route.label, depth: 0 })
                                     }
                                     (route.children || []).forEach((child) => {
@@ -180,7 +180,7 @@ export default function Footer() {
                                         const fullChildPath = childPath.startsWith('/')
                                             ? childPath
                                             : `${route.path}/${childPath}`
-                                        if (!exclude(fullChildPath) && child.label) {
+                                        if (!exclude(fullChildPath, child) && child.label) {
                                             list.push({ path: fullChildPath, label: child.label, depth: 1 })
                                         }
                                         (child.children || []).forEach((sub) => {
@@ -188,7 +188,7 @@ export default function Footer() {
                                             const fullSubPath = subPath.startsWith('/')
                                                 ? subPath
                                                 : `${fullChildPath}/${subPath}`
-                                            if (!exclude(fullSubPath) && sub.label) {
+                                            if (!exclude(fullSubPath, sub) && sub.label) {
                                                 list.push({ path: fullSubPath, label: sub.label, depth: 2 })
                                             }
                                         })
