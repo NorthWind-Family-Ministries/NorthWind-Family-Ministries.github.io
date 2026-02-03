@@ -235,6 +235,32 @@ export default function CookingForLife() {
                             <Typography variant="body2" color="text.secondary">
                                 Ideal for small groups and families wanting hands‑on experience.
                             </Typography>
+                            <Card variant="outlined">
+                        <CardContent>
+                            <Grid container spacing={2} alignItems="center">
+                                <Grid item xs={12} md={6}>
+                                    <Box sx={{ width: '100%', borderRadius: 1, overflow: 'hidden', border: '1px solid', borderColor: 'divider' }}>
+                                        <img
+                                            src="/images/areas/c4l.jpg"
+                                            alt="Participant story — Next Step"
+                                            style={{ width: '100%', display: 'block' }}
+                                        />
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={12} md={6}>
+                                    <Typography variant="h6" gutterBottom>
+                                        A Participant's Story
+                                    </Typography>
+                                    <Typography variant="body1" color="text.secondary" paragraph>
+                                        "Being in the kitchen with others helped me try new things without feeling judged. I left with practical skills and meals my family actually enjoys."
+                                    </Typography>
+                                    <Typography variant="caption" color="text.secondary">
+                                        Shared with permission. Names and details may be changed to protect privacy.
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                        </CardContent>
+                    </Card>
                         </Grid>
                         <Grid item xs={12} md={5}>
                             <ConstantContactFormCard
@@ -270,6 +296,32 @@ export default function CookingForLife() {
                             <Typography variant="body2" color="text.secondary">
                                 Great for families looking for flexible scheduling and step‑by‑step guidance.
                             </Typography>
+                            <Card variant="outlined">
+                        <CardContent>
+                            <Grid container spacing={2} alignItems="center">
+                                <Grid item xs={12} md={6}>
+                                    <Box sx={{ width: '100%', borderRadius: 1, overflow: 'hidden', border: '1px solid', borderColor: 'divider' }}>
+                                        <img
+                                            src="/images/areas/c4l.jpg"
+                                            alt="Participant story — Online"
+                                            style={{ width: '100%', display: 'block' }}
+                                        />
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={12} md={6}>
+                                    <Typography variant="h6" gutterBottom>
+                                        A Participant's Story
+                                    </Typography>
+                                    <Typography variant="body1" color="text.secondary" paragraph>
+                                        "Joining the online classes helped me plan meals and cook with what I had at home. The step‑by‑step support made it easy to build confidence week by week."
+                                    </Typography>
+                                    <Typography variant="caption" color="text.secondary">
+                                        Shared with permission. Names and details may be changed to protect privacy.
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                        </CardContent>
+                    </Card>
                         </Grid>
                         <Grid item xs={12} md={5}>
                             <ConstantContactFormCard
@@ -308,6 +360,32 @@ export default function CookingForLife() {
                             <Typography variant="body2" color="text.secondary">
                                 Add your name to be notified when the program resumes.
                             </Typography>
+                            <Card variant="outlined">
+                        <CardContent>
+                            <Grid container spacing={2} alignItems="center">
+                                <Grid item xs={12} md={6}>
+                                    <Box sx={{ width: '100%', borderRadius: 1, overflow: 'hidden', border: '1px solid', borderColor: 'divider' }}>
+                                        <img
+                                            src="/images/areas/c4l.jpg"
+                                            alt="Participant story — Redwood Foodbank"
+                                            style={{ width: '100%', display: 'block' }}
+                                        />
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={12} md={6}>
+                                    <Typography variant="h6" gutterBottom>
+                                        A Participant's Story
+                                    </Typography>
+                                    <Typography variant="body1" color="text.secondary" paragraph>
+                                        "I learned quick recipes that made the most of what was available. It felt good to bring home something simple and healthy we could make together."
+                                    </Typography>
+                                    <Typography variant="caption" color="text.secondary">
+                                        Shared with permission. Names and details may be changed to protect privacy.
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                        </CardContent>
+                    </Card>
                         </Grid>
                         <Grid item xs={12} md={5}>
                             <ConstantContactFormCard
