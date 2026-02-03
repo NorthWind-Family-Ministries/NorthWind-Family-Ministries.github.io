@@ -37,6 +37,13 @@ export default function Programs() {
             to: '/programs/learning-centre',
         },
         {
+            title: 'Camps',
+            subtitle: 'Day camps and family experiences at Eagle’s Cove.',
+            pillar: 'Land Based',
+            sector: 'Community Care',
+            to: '/programs/camps',
+        },
+        {
             title: 'Compass',
             subtitle: 'Northern Response Team supporting communities after crisis.',
             pillar: 'Counselling',

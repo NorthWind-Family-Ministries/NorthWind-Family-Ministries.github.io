@@ -117,9 +117,9 @@ export default function SpiritualGrowth() {
                                 subtitle:
                                     'Scripture-based learning and discussion to grow understanding and faith.',
                                 button: {
-                                    label: 'Join a Study',
+                                    label: 'Learn More',
                                     variant: 'outlined',
-                                    props: { component: Link, to: '/contact?area=Bible%20Studies' },
+                                    props: { component: Link, to: '/spiritualgrowth/bible-study' },
                                 },
                             },
                             {

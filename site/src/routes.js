@@ -11,8 +11,10 @@ import LifeBuild from './pages/WhatWeDo/LifeBuild'
 import CookingForLife from './pages/Programs/CookingForLife'
 import Compass from './pages/Programs/Compass'
 import LearningCentre from './pages/Programs/LearningCentre'
+import Camps from './pages/Programs/Camps'
 import LandBase from './pages/WhatWeDo/LandBase'
 import SpiritualGrowth from './pages/WhatWeDo/SpiritualGrowth'
+import BibleStudy from './pages/WhatWeDo/SpiritualGrowth/BibleStudy'
 import TeamMemberRedirect from './pages/WhoWeAre/TeamMemberRedirect'
 import WhatWeDo from './pages/WhatWeDo'
 import WhoWeServe from './pages/WhoWeServe'
@@ -71,6 +73,13 @@ const routes = [
                         component: LearningCentre,
                         showInNav: false,
                         icon: SelfImprovement,
+                    },
+                    {
+                        path: '/programs/bible-study',
+                        label: 'Bible Study',
+                        component: BibleStudy,
+                        showInNav: false,
+                        icon: SelfImprovement,
                     }
                 ],
             },
@@ -124,6 +133,15 @@ const routes = [
                 component: LandBase,
                 showInNav: false,
                 icon: ParkOutlined,
+                children: [
+                    {  
+                        path: '/programs/camps',
+                        label: 'Camps',
+                        component: Camps,
+                        showInNav: false,
+                        icon: ParkOutlined,
+                    },
+                ],
             },
             {
                 path: '/spiritualgrowth',
@@ -136,6 +154,13 @@ const routes = [
                         path: '/programs/learning-centre',
                         label: 'Learning Centre',
                         component: LearningCentre,
+                        showInNav: false,
+                        icon: SelfImprovement,
+                    },
+                    {
+                        path: 'bible-study',
+                        label: 'Bible Study',
+                        component: BibleStudy,
                         showInNav: false,
                         icon: SelfImprovement,
                     }
@@ -169,6 +194,13 @@ const routes = [
                 component: LearningCentre,
                 showInNav: false,
                 icon: SelfImprovement,
+            },
+            {
+                path: 'camps',
+                label: 'Camps',
+                component: Camps,
+                showInNav: false,
+                icon: ParkOutlined,
             },
                 {
                     path: 'compass',
