@@ -30,6 +30,13 @@ export default function Programs() {
             to: '/programs/cooking-for-life',
         },
         {
+            title: 'Learning Centre',
+            subtitle: 'Study God’s Word and grow through accessible classes.',
+            pillar: 'Spiritual Growth',
+            sector: 'Community Care',
+            to: '/programs/learning-centre',
+        },
+        {
             title: 'Compass',
             subtitle: 'Northern Response Team supporting communities after crisis.',
             pillar: 'Counselling',

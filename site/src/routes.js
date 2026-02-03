@@ -10,6 +10,7 @@ import FSP from './pages/Programs/FSP'
 import LifeBuild from './pages/WhatWeDo/LifeBuild'
 import CookingForLife from './pages/Programs/CookingForLife'
 import Compass from './pages/Programs/Compass'
+import LearningCentre from './pages/Programs/LearningCentre'
 import LandBase from './pages/WhatWeDo/LandBase'
 import SpiritualGrowth from './pages/WhatWeDo/SpiritualGrowth'
 import TeamMemberRedirect from './pages/WhoWeAre/TeamMemberRedirect'
@@ -145,6 +146,13 @@ const routes = [
                 component: CookingForLife,
                 showInNav: false,
                 icon: BuildCircleOutlined,
+            },
+            {
+                path: 'learning-centre',
+                label: 'Learning Centre',
+                component: LearningCentre,
+                showInNav: false,
+                icon: SelfImprovement,
             },
                 {
                     path: 'compass',
