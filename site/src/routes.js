@@ -9,6 +9,7 @@ import Counselling from './pages/WhatWeDo/Counselling'
 import FSP from './pages/Programs/FSP'
 import LifeBuild from './pages/WhatWeDo/LifeBuild'
 import CookingForLife from './pages/Programs/CookingForLife'
+import Compass from './pages/Programs/Compass'
 import LandBase from './pages/WhatWeDo/LandBase'
 import SpiritualGrowth from './pages/WhatWeDo/SpiritualGrowth'
 import TeamMemberRedirect from './pages/WhoWeAre/TeamMemberRedirect'
@@ -145,6 +146,13 @@ const routes = [
                 showInNav: false,
                 icon: BuildCircleOutlined,
             },
+                {
+                    path: 'compass',
+                    label: 'Compass',
+                    component: Compass,
+                    showInNav: false,
+                    icon: PsychologyOutlined,
+                },
         ],
     },
     {

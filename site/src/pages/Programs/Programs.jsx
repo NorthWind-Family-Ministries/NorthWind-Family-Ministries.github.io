@@ -29,6 +29,13 @@ export default function Programs() {
             sector: 'Community Care',
             to: '/programs/cooking-for-life',
         },
+        {
+            title: 'Compass',
+            subtitle: 'Northern Response Team supporting communities after crisis.',
+            pillar: 'Counselling',
+            sector: 'Northern Care',
+            to: '/programs/compass',
+        },
     ]), [])
 
     const [selectedPillars, setSelectedPillars] = useState([])
