@@ -145,16 +145,16 @@ export default function Header() {
                             return (
                                 <Accordion key={to} elevation={0} disableGutters sx={{ boxShadow: 'none', '&::before': { display: 'none' } }}>
                                     <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 2 }}>
-                                        <Typography>{child.label || childPath}</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails sx={{ pt: 0 }}>
-                                        <MenuItem
+                                        <Typography
                                             component={Link}
                                             to={to}
-                                            onClick={() => { setMenuAnchorEl(null); setMenuRoute(null); }}
+                                            onClick={(e) => { e.stopPropagation(); setMenuAnchorEl(null); setMenuRoute(null); }}
+                                            sx={{ textDecoration: 'none', color: 'inherit' }}
                                         >
                                             {child.label || childPath}
-                                        </MenuItem>
+                                        </Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails sx={{ pt: 0 }}>
                                         {child.children.map(sub => {
                                             const subPath = String(sub.path || '')
                                             const to2 = subPath.startsWith('/') ? subPath : `${to}/${subPath}`
