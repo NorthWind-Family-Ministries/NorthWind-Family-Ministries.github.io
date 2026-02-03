@@ -65,6 +65,13 @@ const routes = [
                         showInNav: false,
                         icon: BuildCircleOutlined,
                     },
+                    {
+                        path: '/programs/learning-centre',
+                        label: 'Learning Centre',
+                        component: LearningCentre,
+                        showInNav: false,
+                        icon: SelfImprovement,
+                    }
                 ],
             },
             { path: '/who-we-serve#prison-care', label: 'Prison Care', showInNav: false },
@@ -124,6 +131,15 @@ const routes = [
                 component: SpiritualGrowth,
                 showInNav: false,
                 icon: SelfImprovement,
+                children: [
+                    {
+                        path: '/programs/learning-centre',
+                        label: 'Learning Centre',
+                        component: LearningCentre,
+                        showInNav: false,
+                        icon: SelfImprovement,
+                    }
+                ]
             },
         ],
     },
