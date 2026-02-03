@@ -51,7 +51,6 @@ const routes = [
                 path: '/who-we-serve#northern-care', 
                 label: 'Northern Care', 
                 showInNav: false,
-                hideFromSitemap: true,
                 children: [
                     {
                         path: '/programs/compass',
@@ -63,12 +62,11 @@ const routes = [
                     },
                 ],
             },
-            { path: '/who-we-serve#street-care', label: 'Street Care', showInNav: false, hideFromSitemap: true },
+            { path: '/who-we-serve#street-care', label: 'Street Care', showInNav: false },
             {
                 path: '/who-we-serve#community-care',
                 label: 'Community Care',
                 showInNav: false,
-                hideFromSitemap: true,
                 children: [
                     {
                         path: '/programs/fsp',
@@ -76,6 +74,7 @@ const routes = [
                         component: FSP,
                         showInNav: false,
                         icon: PsychologyOutlined,
+                        hideFromSitemap: true,
                     },
                     {
                         path: '/programs/cooking-for-life',
@@ -83,6 +82,7 @@ const routes = [
                         component: CookingForLife,
                         showInNav: false,
                         icon: BuildCircleOutlined,
+                        hideFromSitemap: true,
                     },
                     {
                         path: '/programs/learning-centre',
@@ -90,6 +90,7 @@ const routes = [
                         component: LearningCentre,
                         showInNav: false,
                         icon: SelfImprovement,
+                        hideFromSitemap: true,
                     },
                     {
                         path: '/programs/bible-study',
@@ -97,10 +98,11 @@ const routes = [
                         component: BibleStudy,
                         showInNav: false,
                         icon: SelfImprovement,
+                        hideFromSitemap: true,
                     }
                 ],
             },
-            { path: '/who-we-serve#prison-care', label: 'Prison Care', showInNav: false, hideFromSitemap: true },
+            { path: '/who-we-serve#prison-care', label: 'Prison Care', showInNav: false },
         ],
     },
     {
@@ -125,6 +127,7 @@ const routes = [
                         component: FSP,
                         showInNav: false,
                         icon: PsychologyOutlined,
+                        hideFromSitemap: true,
                     },
                     {
                         path: '/programs/compass',
@@ -149,6 +152,7 @@ const routes = [
                         component: CookingForLife,
                         showInNav: false,
                         icon: BuildCircleOutlined,
+                        hideFromSitemap: true,
                     },
                 ],
             },

@@ -165,7 +165,7 @@ export default function Footer() {
                     </Grid>
                     <Grid item xs={12} md={5}>
                         <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1, color: 'grey.100' }}>Site Map</Typography>
-                        <Box sx={{ columnCount: { xs: 1, sm: 2 }, columnGap: 24, maxWidth: 540 }}>
+                        <Box sx={{ columnCount: { xs: 1, sm: 2 }, columnGap: 10, maxWidth: 640 }}>
                             {(() => {
                                 // Flatten top-level + children + sub-children into a single list with depth
                                 const list = []
