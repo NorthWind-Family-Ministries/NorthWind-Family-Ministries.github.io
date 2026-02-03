@@ -14,6 +14,7 @@ import LearningCentre from './pages/Programs/LearningCentre'
 import Camps from './pages/Programs/Camps'
 import Retreat from './pages/Programs/Retreat'
 import DropInCounselling from './pages/Programs/DropInCounselling'
+import ScheduledCounselling from './pages/Programs/ScheduledCounselling'
 import LandBase from './pages/WhatWeDo/LandBase'
 import SpiritualGrowth from './pages/WhatWeDo/SpiritualGrowth'
 import BibleStudy from './pages/Programs/BibleStudy'
@@ -137,6 +138,30 @@ const routes = [
                 icon: PsychologyOutlined,
                 children: [
                     {
+                        path: '/programs/scheduled-counselling#individual',
+                        label: 'Individual Counselling',
+                        component: ScheduledCounselling,
+                        showInNav: false,
+                        icon: PsychologyOutlined,
+                        hideFromSitemap: true,
+                    },
+                    {
+                        path: '/programs/scheduled-counselling#family',
+                        label: 'Family Counselling',
+                        component: ScheduledCounselling,
+                        showInNav: false,
+                        icon: PsychologyOutlined,
+                        hideFromSitemap: true,
+                    },
+                    {
+                        path: '/programs/scheduled-counselling#couples',
+                        label: 'Couples Counselling',
+                        component: ScheduledCounselling,
+                        showInNav: false,
+                        icon: PsychologyOutlined,
+                        hideFromSitemap: true,
+                    },
+                    {
                         path: '/programs/drop-in-counselling',
                         label: 'Drop-in Counselling',
                         component: DropInCounselling,
@@ -144,6 +169,7 @@ const routes = [
                         icon: PsychologyOutlined,
                         hideFromSitemap: true,
                     },
+                
                     {
                         path: '/programs/fsp',
                         label: 'Family Strengthening Program',
@@ -250,6 +276,13 @@ const routes = [
         component: Programs,
         showInNav: false,
         children: [
+            {
+                path: 'scheduled-counselling',
+                label: 'Scheduled Counselling',
+                component: ScheduledCounselling,
+                showInNav: false,
+                icon: PsychologyOutlined,
+            },
             {
                 path: 'fsp',
                 label: 'Family Strengthening Program',
