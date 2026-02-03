@@ -13,6 +13,7 @@ import Compass from './pages/Programs/Compass'
 import LearningCentre from './pages/Programs/LearningCentre'
 import Camps from './pages/Programs/Camps'
 import Retreat from './pages/Programs/Retreat'
+import DropInCounselling from './pages/Programs/DropInCounselling'
 import LandBase from './pages/WhatWeDo/LandBase'
 import SpiritualGrowth from './pages/WhatWeDo/SpiritualGrowth'
 import BibleStudy from './pages/Programs/BibleStudy'
@@ -62,7 +63,21 @@ const routes = [
                     },
                 ],
             },
-            { path: '/who-we-serve#street-care', label: 'Street Care', showInNav: false },
+            { 
+                path: '/who-we-serve#street-care', 
+                label: 'Street Care', 
+                showInNav: false,
+                children: [
+                    {
+                        path: '/programs/drop-in-counselling',
+                        label: 'Drop-in Counselling',
+                        component: DropInCounselling,
+                        showInNav: false,
+                        icon: PsychologyOutlined,
+                        hideFromSitemap: true,
+                    }
+                ]
+            },
             {
                 path: '/who-we-serve#community-care',
                 label: 'Community Care',
@@ -121,6 +136,14 @@ const routes = [
                 showInNav: false,
                 icon: PsychologyOutlined,
                 children: [
+                    {
+                        path: '/programs/drop-in-counselling',
+                        label: 'Drop-in Counselling',
+                        component: DropInCounselling,
+                        showInNav: false,
+                        icon: PsychologyOutlined,
+                        hideFromSitemap: true,
+                    },
                     {
                         path: '/programs/fsp',
                         label: 'Family Strengthening Program',
@@ -261,6 +284,13 @@ const routes = [
                 component: Retreat,
                 showInNav: false,
                 icon: ParkOutlined,
+            },
+            {
+                path: 'drop-in-counselling',
+                label: 'Drop-in Counselling',
+                component: DropInCounselling,
+                showInNav: false,
+                icon: PsychologyOutlined,
             },
                 {
                     path: 'compass',

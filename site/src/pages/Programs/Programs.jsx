@@ -23,6 +23,13 @@ export default function Programs() {
             to: '/programs/fsp',
         },
         {
+            title: 'Drop-in Counselling',
+            subtitle: 'Compassionate, same-day support in Thunder Bay.',
+            pillar: 'Counselling',
+            sector: 'Street Care',
+            to: '/programs/drop-in-counselling',
+        },
+        {
             title: 'Cooking For Life',
             subtitle: 'Practical cooking skills and nutrition education for everyday life.',
             pillar: 'LifeBuild',
